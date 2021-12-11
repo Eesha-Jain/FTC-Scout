@@ -1,0 +1,36 @@
+{
+  "name": "ftc-scouting",
+  "version": "0.1.0",
+  "description": "FTC Scouting is a website where FIRST Tech Challenge teams can easily scout pre-match and during matches. This tool was developed by High Definition.",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x",
+    "npm": "7.x"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "assert": "^2.0.0",
+    "bcrypt": "^5.0.1",
+    "fs": "^0.0.1-security",
+    "js-cookie": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "mongodb": "^4.2.0",
+    "next": "^12.0.4",
+    "nodemailer": "^6.7.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.43.4",
+    "uuid": "^8.3.2"
+  }
+}

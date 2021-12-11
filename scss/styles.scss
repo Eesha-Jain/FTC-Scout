@@ -1,0 +1,190 @@
+@import 'vars';
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html, body, input, button, label {
+    font-family: 'Roboto Condensed', 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+::-moz-selection {
+    background-color: $highlightblue;
+    color: black;
+}
+
+::selection {
+    background-color: $highlightblue;
+    color: black;
+}
+
+.section {
+    padding: 10px;
+    text-align: center;
+}
+
+.icon {
+    color: $purple;
+}
+
+@media only screen and (min-width: 900px) {
+    .column {
+        float: left;
+        width: 48%;
+        padding: 10px;
+    }
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/*grid*/
+
+.grid {
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .grid {
+        grid-template-columns: 49% 49%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .grid {
+        grid-template-columns: 98%;
+    }
+}
+
+.grid-item {
+    padding: 10px;
+}
+
+/*components*/
+
+.Tabs {
+    background-color: $orange;
+    margin: 0;
+    padding: 0;
+    border: 1px solid $orange;
+
+    .logo {
+        flex: 1;
+    }
+
+    .tabs {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .tab {
+        float: right;
+        padding: 0px 20px;
+        margin: 5px;
+        display: flex;
+
+        a, button {
+            text-decoration: none;
+            color: $white;
+            font-weight: 100;
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+    }
+
+    .this-page {
+        border: 2px solid $white !important;
+        padding: 10px;
+    }
+
+    .toggle {
+        display: none;
+    }
+
+    @media screen and (max-width: 800px) {
+        .toggle {
+            display: flex;
+        }
+
+        .tab {
+            display: none;
+        }
+    }
+}
+
+.Header {
+    width: 100%;
+    min-height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*Background stuff - makes parallax*/
+    background: linear-gradient(to bottom,rgba(0,0,0,0.7), rgba(0,0,0, 0.9)), url('/static/images/ftcheader.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: cover;
+
+    .headerborder {
+        border: 5px solid $white;
+        background-color: transparent;
+        padding: 20px;
+        min-width: 300px;
+        z-index: 10;
+        position: absolute;
+        color: $white;
+
+        h1 {
+            font-size: 60px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+    
+        p {
+            text-align: center;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        h1 {
+            font-size: 50px !important;
+        }
+
+        .headerborder {
+            width: 340px !important;
+        }
+    }
+}
+
+.Footer {
+    .footerPt2 {
+        background-color: $black;
+        padding: 10px;
+
+        h4 {
+            font-weight: 300;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

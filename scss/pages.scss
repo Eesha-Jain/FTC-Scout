@@ -1,0 +1,104 @@
+@import 'vars';
+
+.Login, .Signup, .ForgotPassword, .Reset {
+    button {
+        background: none;
+        border: none;
+        outline: none;
+        color: blue;
+        font-size: 15px;
+    }
+
+    .formborder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .form {
+            height: wrap-content;
+            width: 70%;
+            background-color: $lightgray;
+            margin: 0px;
+            padding: 20px;
+            padding-bottom: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            
+            input {
+                outline: none;
+                border: 1px solid $logogray;
+                border-radius: 3px;
+                padding: 3px;
+                width: 98%;
+                margin: 1px;
+                font-weight: 300;
+            }
+            
+            .submit {
+                width: 50%;
+                border: none;
+                border-radius: 50px;
+                outline: none;
+                padding: 10px;
+                color: white;
+                font-size: 14px;
+                background-color: $orange;
+            }
+            
+            #message {
+                color: red;
+            }
+        }
+    }
+}
+
+.Account {
+    .center {
+        display: flex;
+    }
+
+    .margin {
+        margin: auto;
+    }
+
+    h1 {
+        text-align: center;
+        color: $orange;
+        font-weight: 800;
+    }
+
+    .grid {
+        width: 100%;
+        grid-template-columns: auto auto auto auto;
+        margin: 0 20px 50px 20px;
+    }
+
+    .capability {
+        tr td {
+            text-align: left;
+
+            input[type=number] {
+                outline: none;
+            }
+        }
+    }
+
+    .box {
+        border: 3px solid black;
+        text-align: center;
+        padding: 15px 50px;
+    }
+
+    .save {
+        margin-top: 10px;
+        width: 50%;
+        border: none;
+        min-width: 150px;
+        border-radius: 50px;
+        outline: none;
+        padding: 10px;
+        color: white;
+        font-size: 14px;
+        background-color: $orange;
+    }
+}
