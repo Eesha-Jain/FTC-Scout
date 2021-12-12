@@ -13,13 +13,14 @@ export default function Account () {
   const [content, setContent] = useState(<p style={{textAlign: 'center'}}>Loading...</p>);
   const [teamnumber, setTeamNumber] = useState(0);
   const [auto, setAuto] = useState([false, false, false, false, false, false, false, 0, 0]);
-  const [tele, setTele] = useState([0, 0, 0, 0]);
-  const [endgame, setEndgame] = useState([false, false, false, false, false, 0, 0, 0, 0, 0]);
+  const [tele, setTele] = useState([0, 0, 0, 0, 0]);
+  const [endgame, setEndgame] = useState([false, false, false, false, false, 0]);
   const [best, setBest] = useState([0]);
+  const [updates, setUpdates] = useState(0);
 
   const updateAuto = (e) => {
     e.preventDefault();
-    setMessage("");
+    setMessage("Loading...");
 
     fetch('/api/auto', {
       method: 'POST',
@@ -37,17 +38,65 @@ export default function Account () {
     })
   };
   
-  const updateTele = () => {
+  const updateTele = (e) => {
+    e.preventDefault();
+    setMessage("Loading...");
 
-  }
+    fetch('/api/teleop', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({teamnumber, tele})
+    }).then(res => res.json()).then((data) => {
+      if (data.error) {
+        setMessage('Error: Try Again');
+      } else {
+        setMessage('Saved!');
+        setTimeout(() => { setMessage(""); }, 4000);
+      }
+    })
+  };
 
-  const updateEnd = () => {
+  const updateEnd = (e) => {
+    e.preventDefault();
+    setMessage("Loading...");
 
-  }
+    fetch('/api/endgame', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({teamnumber, endgame})
+    }).then(res => res.json()).then((data) => {
+      if (data.error) {
+        setMessage('Error: Try Again');
+      } else {
+        setMessage('Saved!');
+        setTimeout(() => { setMessage(""); }, 4000);
+      }
+    })
+  };
 
-  const bestScore = () => {
+  const bestScore = (e) => {
+    e.preventDefault();
+    setMessage("Loading...");
 
-  }
+    fetch('/api/best', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({teamnumber, best})
+    }).then(res => res.json()).then((data) => {
+      if (data.error) {
+        setMessage('Error: Try Again');
+      } else {
+        setMessage('Saved!');
+        setTimeout(() => { setMessage(""); }, 4000);
+      }
+    })
+  };
 
   function update(round, valIndex, value) {
     if (round == 1) {
@@ -55,7 +104,7 @@ export default function Account () {
       arr[valIndex] = value;
       setAuto(arr);
     } else if (round == 2) {
-      let arr = [tele[0], tele[1], tele[2], tele[3]];
+      let arr = [tele[0], tele[1], tele[2], tele[3], tele[4]];
       arr[valIndex] = value;
       setTele(arr);
     } else if (round == 3) {
@@ -63,7 +112,7 @@ export default function Account () {
       arr[valIndex] = value;
       setEndgame(arr);
     } else {
-      let arr = [drop4[0]];
+      let arr = [best[0]];
       arr[valIndex] = value;
       setBest(arr);
     }
@@ -80,7 +129,15 @@ export default function Account () {
         },
         body: JSON.stringify({teamnumber: user})
       }).then(res => res.json()).then(async (data) => {
-        setTeamNumber(data.teamnumber);
+        if (updates != 1) { 
+          setTeamNumber(data.teamnumber);
+          setAuto(data.auto);
+          setTele(data.tele);
+          setEndgame(data.endgame);
+          setBest(data.best);
+          setUpdates(1); 
+        }
+
         setContent(
           <div className="surround margin">
           <div className="interior margin">
@@ -144,7 +201,7 @@ export default function Account () {
 
                     <table className="capability"><tbody>
                       <tr>
-                        <td><label>Freight on Alliance Storage Unit: </label></td>
+                        <td><label>Freight in Alliance Storage Unit: </label></td>
                         <td><input type="number" min="0" max="100" value={auto[7]} onChange={(e) => update(1, 7, Number(e.target.value))}/></td>
                       </tr>
 
@@ -160,26 +217,31 @@ export default function Account () {
 
                 <div className="box">
                   <h4>Tele-Op</h4>
-                  <form>
+                  <form onSubmit={updateTele}>
                     <table className="capability"><tbody>
                       <tr>
-                        <td><label>Freight on Alliance Storage Unit: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
+                        <td><label>Freight in Alliance Storage Unit: </label></td>
+                        <td><input type="number" min="0" max="100" value={tele[0]} onChange={(e) => update(2, 0, Number(e.target.value))}/></td>
                       </tr>
 
                       <tr>
                         <td><label>Alliance Shipping Hub - Level 1: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
+                        <td><input type="number" min="0" max="100" value={tele[1]} onChange={(e) => update(2, 1, Number(e.target.value))}/></td>
                       </tr>
 
                       <tr>
                         <td><label>Alliance Shipping Hub - Level 2: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
+                        <td><input type="number" min="0" max="100" value={tele[2]} onChange={(e) => update(2, 2, Number(e.target.value))}/></td>
                       </tr>
 
                       <tr>
                         <td><label>Alliance Shipping Hub - Level 3: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
+                        <td><input type="number" min="0" max="100" value={tele[3]} onChange={(e) => update(2, 3, Number(e.target.value))}/></td>
+                      </tr>
+
+                      <tr>
+                        <td><label>Shared Shipping Hub: </label></td>
+                        <td><input type="number" min="0" max="100" value={tele[4]} onChange={(e) => update(2, 4, Number(e.target.value))}/></td>
                       </tr>
                     </tbody></table>
 
@@ -189,30 +251,30 @@ export default function Account () {
 
                 <div className="box">
                   <h4>Endgame</h4>
-                  <form>
+                  <form onSubmit={updateEnd}>
                     <table className="capability"><tbody>
                       <tr>
-                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" checked={endgame[0]} onChange={() => update(3, 0, !endgame[0])}/></td>
                         <td><label>Alliance Shipping Hub Balanced</label><br /></td>
                       </tr>
 
                       <tr>
-                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" checked={endgame[1]} onChange={() => update(3, 1, !endgame[1])}/></td>
                         <td><label>Shared Shipping Hub Tipped towards Alliance</label><br /></td>
                       </tr>
 
                       <tr>
-                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" checked={endgame[2]} onChange={() => update(3, 2, !endgame[2])}/></td>
                         <td><label>Alliance Shipping Hub Capped</label><br /></td>
                       </tr>
 
                       <tr>
-                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" checked={endgame[3]} onChange={() => update(3, 3, !endgame[3])}/></td>
                         <td><label>Parked Completely in Warehouse</label><br /></td>
                       </tr>
 
                       <tr>
-                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" checked={endgame[4]} onChange={() => update(3, 4, !endgame[4])}/></td>
                         <td><label>Parked Partially in Warehouse</label><br /></td>
                       </tr>
                     </tbody></table>
@@ -222,27 +284,7 @@ export default function Account () {
                     <table className="capability"><tbody>
                       <tr>
                         <td><label>Delivery via Carousel: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
-                      </tr>
-
-                      <tr>
-                        <td><label>Freight on Alliance Storage Unit: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
-                      </tr>
-
-                      <tr>
-                        <td><label>Alliance Shipping Hub - Level 1: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
-                      </tr>
-
-                      <tr>
-                        <td><label>Alliance Shipping Hub - Level 2: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
-                      </tr>
-
-                      <tr>
-                        <td><label>Alliance Shipping Hub - Level 3: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
+                        <td><input type="number" min="0" max="100" value={endgame[5]} onChange={(e) => update(3, 5, Number(e.target.value))}/></td>
                       </tr>
                     </tbody></table>
 
@@ -252,11 +294,11 @@ export default function Account () {
 
                 <div className="box">
                   <h4>Matches</h4>
-                  <form>
+                  <form onSubmit={bestScore}>
                     <table className="capability"><tbody>
                       <tr>
                         <td><label>Best Score: </label></td>
-                        <td><input type="number" min="0" max="100" /><br /></td>
+                        <td><input type="number" min="0" max="1000" value={best[0]} onChange={(e) => update(4, 0, Number(e.target.value))}/></td>
                       </tr>
                     </tbody></table>
                     
@@ -282,7 +324,7 @@ export default function Account () {
       alert("Already logged into " + user);
       localStorage.removeItem('loggedIn');
     }
-  }, [user, auto, tele, endgame]);
+  }, [user, auto, tele, endgame, best, message]);
 
   return (
     <div className="Account">

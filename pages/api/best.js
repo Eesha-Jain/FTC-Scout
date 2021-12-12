@@ -16,11 +16,11 @@ function findUser(db, teamnumber, callback) {
   collection.findOne({teamnumber}, callback);
 }
 
-async function updateUser(db, teamnumber, tele, callback) {
+async function updateUser(db, teamnumber, best, callback) {
   const collection = db.collection('accounts');
   await collection.updateOne(
     { "teamnumber" : teamnumber },
-    { $set: { "tele" : tele } }
+    { $set: { "best" : best } }
   );
 
   callback({created: true});
@@ -32,10 +32,10 @@ export default (req, res) => {
     client.connect(function(err) {
       assert.equal(null, err);
       const db = client.db('users');
-      const tele = req.body.tele;
+      const best = req.body.best;
       const teamnumber = req.body.teamnumber;
 
-      updateUser(db, teamnumber, tele, function(creation) {
+      updateUser(db, teamnumber, best, function(creation) {
         if (creation.created) {
           return res.status(200).json({error: false});
         } else {

@@ -1,3 +1,5 @@
+import auto from './auto';
+
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const bcrypt = require('bcrypt');
@@ -33,7 +35,11 @@ export default (req, res) => {
               email: user.email,
               teamname: user.teamname,
               teamnumber: user.teamnumber,
-              state: user.state
+              state: user.state,
+              auto: user.auto,
+              tele: user.tele,
+              endgame: user.endgame,
+              best: user.best
           });
         } else {
           return res.status(403).json({error: true, message: "Account Doesn't Exist"});
