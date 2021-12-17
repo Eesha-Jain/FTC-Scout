@@ -5,6 +5,7 @@ import Router, { useRouter } from 'next/router';
 import cookie from 'js-cookie';
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
+import Footer from '../../components/footer';
 
 export default function Account () {
   const router = useRouter();
@@ -331,6 +332,8 @@ export default function Account () {
       <Top name="Account" />
       <Nav name="Account" user={user} />
       <div className="outside">{content}</div>
+
+      <Footer />
     </div>
   );
 };
