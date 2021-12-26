@@ -10,24 +10,23 @@ const client = new MongoClient(process.env.URI, {
 });
 
 var arr = [];
-const func = (element) => {
-  arr.push(element);
-}
+const func = (element) => { arr.push(element); }
 
 export default (req, res) => {
   if (req.method === 'POST') {
-    // verify teamnumber does not exist already
     client.connect(async function(err) {
       assert.equal(null, err);
       const db = client.db('users');
-      const teamn = req.body.teamnumber + "";
+      const collection = db.collection('accounts');
       arr = [];
-      
-      await db.collection('accounts').find({"teamnumber": {$regex: teamn}}).forEach(func);
+
+      var ele = await collection.findOne({teamnumber: req.body.teamnumber});
+      await collection.find({"state": {$regex: ele.state}}).forEach(func);
+      arr.sort(function(a,b) { return a.teamnumber - b.teamnumber });
+
       return res.status(200).json({error: false, user: arr});
     });
   } else {
-    // Handle any other HTTP method
     res.status(400);
   }
 };
