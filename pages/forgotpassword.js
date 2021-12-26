@@ -28,7 +28,7 @@ export default function ForgotPassword() {
   return (
     <div>
       <div className="ForgotPassword">
-        <Header name="ForgotPassword" title="Forgot Password" description="Fill out the form below to send a reset password email." />
+        <Header name="ForgotPassword" title="Forgot Password" description="Fill out the form below to reset password" />
 
         <br />
 

@@ -14,29 +14,31 @@ export default function Login() {
     setMessage("");
 
     if (password != double) {
-        setMessage("Passwords must match.");
+      setMessage("ERROR: Passwords must match");
+    } else if (password.length < 6) {
+      setMessage("ERROR: Password length must be greater than 6");
+    } else {
+      fetch('/api/setnew', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({password, teamnumber: jwt_decode(Router.query.token).teamnumber})
+      }).then(res => res.json()).then((data) => {
+        if (data.error) {
+          setMessage('Error: Try Again');
+        } else {
+          localStorage.setItem('reset', 'true');
+          Router.push('/login');
+        }
+      })
     }
-
-    fetch('/api/setnew', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({password, teamnumber: jwt_decode(Router.query.token).teamnumber})
-    }).then(res => res.json()).then((data) => {
-      if (data.error) {
-        setMessage('Error: Try Again');
-      } else {
-        localStorage.setItem('reset', 'true');
-        Router.push('/login');
-      }
-    })
   }
 
   return (
     <div>
       <div className="Reset">
-        <Header name="Reset" title="Reset Password" description="Fill out the form below to reset your password." />
+        <Header name="Reset" title="Reset Password" description="Fill out the form below to reset your password" />
 
         <br />
 

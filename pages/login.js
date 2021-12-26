@@ -18,8 +18,10 @@ export default function Login() {
 
     if (cookie.get('token') !== undefined) {
       var teamnumber = jwt_decode(cookie.get('token')).teamnumber;
-      Router.push('/account/' + teamnumber);
-      localStorage.setItem('loggedIn', 'true');
+      if (teamnumber != undefined) {
+        Router.push('/account/' + teamnumber);
+        localStorage.setItem('loggedIn', 'true');
+      }
     }
   }, []);
 
@@ -27,7 +29,7 @@ export default function Login() {
     e.preventDefault();
     setMessage("");
 
-    fetch('/api/verify', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +69,7 @@ export default function Login() {
 
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><button id="submit" className="submit" type="submit">SUBMIT</button></div>
             
-            <button onClick={() => {Router.push('/forgotpassword')}}>Forgot Password?</button>
+            <button onClick={() => {Router.push('/forgotpassword')}} className="forgotpassword">Forgot Password?</button>
             <p id="message" style={{marginBottom: 0}}>{message}</p>
           </form>
         </div>

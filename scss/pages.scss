@@ -9,6 +9,10 @@
         font-size: 15px;
     }
 
+    .forgotpassword {
+        margin-top: 20px;
+    }
+
     .formborder {
         display: flex;
         align-items: center;
@@ -112,6 +116,24 @@
         margin: 0 20px 50px 20px;
     }
 
+    @media only screen and (max-width: 1200px) {
+        .grid {
+            grid-template-columns: 33% 33% 33%;
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+        .grid {
+            grid-template-columns: 49% 49%;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .grid {
+            grid-template-columns: 99%;
+        }
+    }
+
     .capability {
         tr td {
             text-align: left;
@@ -167,6 +189,24 @@
             padding: 0px 2px;
             width: 15px;
             margin: 1px 0px;
+        }
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .teamsearch {
+            grid-template-columns: auto auto auto;
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .teamsearch {
+            grid-template-columns: auto auto;
+        }
+    }
+
+    @media only screen and (max-width: 650px) {
+        .teamsearch {
+            grid-template-columns: auto;
         }
     }
 }

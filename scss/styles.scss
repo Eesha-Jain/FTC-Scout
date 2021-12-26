@@ -52,18 +52,6 @@ html, body, input, button, label, div, button, input::placeholder {
     margin: 20px;
 }
 
-@media only screen and (max-width: 1000px) {
-    .grid {
-        grid-template-columns: 49% 49%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .grid {
-        grid-template-columns: 98%;
-    }
-}
-
 .grid-item {
     padding: 10px;
 }
@@ -146,7 +134,7 @@ html, body, input, button, label, div, button, input::placeholder {
         min-width: 300px;
         z-index: 10;
         position: absolute;
-        color: $white;
+        color: $white;      
 
         h1 {
             font-size: 60px;
@@ -169,7 +157,9 @@ html, body, input, button, label, div, button, input::placeholder {
         }
 
         .headerborder {
-            width: 340px !important;
+            width: 100px !important;
+            border: 3px solid $white;
+            padding: 10px 0;
         }
     }
 }

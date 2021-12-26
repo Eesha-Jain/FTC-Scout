@@ -46,7 +46,7 @@ export default (req, res) => {
         } else {
           authUser(db, teamnumber, password, user.password, function(err, match) {
             if (err) {
-              res.status(500).json({error: true, message: 'Auth Failed'});
+              res.status(500).json({error: true, message: 'Username or Password is Incorrect'});
             }
             if (match) {
               const token = jwt.sign(
@@ -57,7 +57,7 @@ export default (req, res) => {
               res.status(200).json({token, teamnumber: user.teamnumber});
               return;
             } else {
-              res.status(401).json({error: true, message: 'Auth Failed'});
+              res.status(401).json({error: true, message: 'Username or Password is Incorrect'});
               return;
             }
           });

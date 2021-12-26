@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Router from 'next/router';
 import cookie from 'js-cookie';
+import jwt_decode from "jwt-decode";
 
 export default function Signup() {
   const [message, setMessage] = useState("");
@@ -12,6 +13,21 @@ export default function Signup() {
   const [state, setState] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    if (localStorage.getItem('reset') == 'true') {
+      alert("Password Successfully Reset");
+      localStorage.removeItem('reset');
+    }
+
+    if (cookie.get('token') !== undefined) {
+      var teamnumber = jwt_decode(cookie.get('token')).teamnumber;
+      if (teamnumber != undefined) {
+        Router.push('/account/' + teamnumber);
+        localStorage.setItem('loggedIn', 'true');
+      }
+    }
+  }, []);
+
   const verification = (e) => {
     e.preventDefault();
     setMessage("");
@@ -19,7 +35,7 @@ export default function Signup() {
     if (password.length < 6) {
       setMessage("ERROR: Password length must be greater than 6");
     } else {
-      fetch('/api/user', {
+      fetch('/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +47,7 @@ export default function Signup() {
         }
         if (res && res.token) {
           cookie.set('token', res.token, {expires: 2});
-          Router.push('/account/' + teamnumber);
+          Router.push('/login');
         }
       });
     }

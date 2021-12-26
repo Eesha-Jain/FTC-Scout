@@ -26,7 +26,11 @@ function createUser(db, email, password, teamnumber, teamname, state, callback) 
         password: hash,
         teamname,
         teamnumber,
-        state
+        state,
+        auto: [false, false, false, false, false, false, false, 0, 0],
+        tele: [0, 0, 0, 0, 0],
+        endgame: [false, false, false, false, false, 0],
+        best: [0]
       },
       function(err, userCreated) {
         assert.equal(err, null);

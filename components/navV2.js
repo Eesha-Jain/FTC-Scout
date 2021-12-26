@@ -8,7 +8,6 @@ import cookie from 'js-cookie';
 
 export default function NavBar({name, user}) {
   const [open, setOpen] = useState('none');
-  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
@@ -17,9 +16,9 @@ export default function NavBar({name, user}) {
   }, []);
 
   const updateDimensions = () => {
-    setWidth(window.innerWidth);
-
-    if (window.innerWidth >= 768) {setOpen('flex')};
+    if (window.innerWidth >= 768) {setOpen('flex')}
+    else {setOpen('none');}
+    
     try {document.getElementById(name + "").classList.add("this-page");}
     catch(e) {}
   }
