@@ -14,7 +14,7 @@ export default function Top({name}) {
             <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"/>
             <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet"/>
 
-            <link rel="icon" href="/static/logotrans.png" />    
+            <link rel="icon" href="/logotrans.png" />    
         </Head>
     );
 }

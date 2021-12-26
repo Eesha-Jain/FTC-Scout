@@ -133,7 +133,7 @@ html, body, input, button, label, div, button, input::placeholder {
     justify-content: center;
 
     /*Background stuff - makes parallax*/
-    background: linear-gradient(to bottom,rgba(0,0,0,0.7), rgba(0,0,0, 0.9)), url('/static/images/ftcheader.jpg');
+    background: linear-gradient(to bottom,rgba(0,0,0,0.7), rgba(0,0,0, 0.9)), url('/images/ftcheader.jpg');
     background-repeat: no-repeat;
     background-position: top center;
     background-attachment: fixed;

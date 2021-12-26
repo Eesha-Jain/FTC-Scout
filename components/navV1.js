@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import logo from '/static/logonottrans.jpg';
+import logo from '/public/logonottrans.jpg';
 import React, { useEffect, useState } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
