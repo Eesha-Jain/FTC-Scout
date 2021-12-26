@@ -141,3 +141,32 @@
         background-color: $orange;
     }
 }
+
+.Search {
+    .teamsearch {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-column-gap: 10px;
+        background-color: $lightgray;
+        padding: 10px;
+        margin: 20px;
+
+        h4 {
+            text-align: center;
+            background-color: $orangetransparent;
+            padding: 5px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .box {
+            border: 3px solid black;
+            text-align: center;
+            padding: 0px 2px;
+            width: 15px;
+            margin: 1px 0px;
+        }
+    }
+}

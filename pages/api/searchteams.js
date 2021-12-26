@@ -9,7 +9,7 @@ const client = new MongoClient(process.env.URI, {
   useUnifiedTopology: true,
 });
 
-const arr = [];
+var arr = [];
 const func = (element) => {
   arr.push(element);
 }
@@ -21,6 +21,7 @@ export default (req, res) => {
       assert.equal(null, err);
       const db = client.db('users');
       const teamn = req.body.teamnumber + "";
+      arr = [];
       
       await db.collection('accounts').find({"teamnumber": {$regex: teamn}}).forEach(func);
       return res.status(200).json({error: false, user: arr});
