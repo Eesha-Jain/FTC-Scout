@@ -163,3 +163,36 @@
         background-color: $orange;
     }
 }
+
+.State {
+    .filters {
+        grid-template-columns: auto auto auto auto auto auto;
+        grid-column-gap: 15px;
+    }
+
+    .filterele {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;
+
+        button {
+            border: 1px solid $orange;
+            background: $orangetransparent;
+            text-align: center;
+            color: black;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 5px 15px;
+            font-weight: 300;
+            width: 100%;
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+        .filters {
+            grid-template-columns: auto auto;
+        }
+    }
+}
