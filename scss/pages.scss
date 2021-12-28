@@ -95,7 +95,7 @@
     }
 }
 
-.Account {
+.Account, .Form {
     .center {
         display: flex;
     }
@@ -138,10 +138,29 @@
         tr td {
             text-align: left;
 
-            input[type=number] {
+            input[type=number], input[type=text] {
                 outline: none;
             }
         }
+    }
+
+    .info {
+        input {
+            min-width: 200px;
+        }
+    }
+
+    #notesbox {
+        width: auto;
+        margin: 20px;
+    }
+
+    textarea {
+        font-weight: 300;
+        min-width: 95%;
+        max-width: 95%;
+        min-height: 200px;
+        font-size: 16px;
     }
 
     .box {
@@ -164,7 +183,20 @@
     }
 }
 
-.State {
+.State, .PreMatch {
+    #scoutteam {
+        border: 1px solid $orange;
+        background: $orange;
+        font-family: 'Roboto Condensed';
+        text-align: center;
+        color: #fff;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 8px 100px;
+        margin: 20px;
+    }
+
     .filters {
         grid-template-columns: auto auto auto auto auto auto;
         grid-column-gap: 15px;
