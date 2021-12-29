@@ -27,6 +27,7 @@ function createUser(db, email, password, teamnumber, teamname, state, callback) 
         teamname,
         teamnumber,
         state,
+        notes: "",
         auto: [false, false, false, false, false, false, false, 0, 0],
         tele: [0, 0, 0, 0, 0],
         endgame: [false, false, false, false, false, 0],

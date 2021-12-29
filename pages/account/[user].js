@@ -18,6 +18,7 @@ export default function Account () {
   const [endgame, setEndgame] = useState([false, false, false, false, false, 0]);
   const [best, setBest] = useState([0]);
   const [updates, setUpdates] = useState(0);
+  const [notes, setNotes] = useState("");
 
   const updateAuto = (e) => {
     e.preventDefault();
@@ -99,6 +100,26 @@ export default function Account () {
     })
   };
 
+  const updateNotes = (e) => {
+    e.preventDefault();
+    setMessage("Loading...");
+
+    fetch('/api/notes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({teamnumber, notes})
+    }).then(res => res.json()).then((data) => {
+      if (data.error) {
+        setMessage('Error: Try Again');
+      } else {
+        setMessage('Saved!');
+        setTimeout(() => { setMessage(""); }, 4000);
+      }
+    })
+  };
+
   function update(round, valIndex, value) {
     if (round == 1) {
       let arr = [auto[0], auto[1], auto[2], auto[3], auto[4], auto[5], auto[6], auto[7], auto[8]];
@@ -137,6 +158,7 @@ export default function Account () {
           setEndgame(data.endgame);
           setBest(data.best);
           setUpdates(1); 
+          setNotes(data.notes);
         }
 
         setContent(
@@ -309,6 +331,16 @@ export default function Account () {
               </div>
             </div>
           </div>
+
+          <div className="interior margin">
+            <h1>Additional Notes</h1>
+
+            <form onSubmit={updateNotes}>
+              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><textarea rows="10" placeholder="Enter your message..." value={notes} onChange={(e) => {setNotes(e.target.value)}}></textarea></div>
+              
+              <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><button id="submit" className="save" type="submit">Save Data</button></div>
+            </form>
+          </div>
           </div>
         );
       })
@@ -325,7 +357,7 @@ export default function Account () {
       alert("Already logged into " + user);
       localStorage.removeItem('loggedIn');
     }
-  }, [user, auto, tele, endgame, best, message]);
+  }, [user, auto, tele, endgame, best, message, notes]);
 
   return (
     <div className="Account">

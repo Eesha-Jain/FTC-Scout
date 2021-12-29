@@ -1,4 +1,4 @@
-import auto from './auto';
+//Code adapted from https://github.com/mgranados/simple-login
 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
@@ -16,34 +16,28 @@ function findUser(db, teamnumber, callback) {
   collection.findOne({teamnumber}, callback);
 }
 
+async function updateUser(db, teamnumber, notes, callback) {
+  const collection = db.collection('accounts');
+  await collection.updateOne(
+    { "teamnumber" : teamnumber },
+    { $set: { "notes" : notes } }
+  );
+
+  callback({created: true});
+}
+
 export default (req, res) => {
   if (req.method === 'POST') {
     // verify teamnumber does not exist already
     client.connect(function(err) {
       assert.equal(null, err);
       const db = client.db('users');
-      const teamnumber = req.body.teamnumber;
-
-      findUser(db, teamnumber, function(err, user) {
-        if (err) {
-          res.status(500).json({error: true, message: 'Error Finding User'});
-          return;
-        }
-        if (user) {
-          return res.status(200).json({
-            error: false,
-            email: user.email,
-            teamname: user.teamname,
-            teamnumber: user.teamnumber,
-            state: user.state,
-            auto: user.auto,
-            tele: user.tele,
-            endgame: user.endgame,
-            best: user.best,
-            notes: user.notes
-          });
+      
+      updateUser(db, req.body.teamnumber, req.body.notes, function(creation) {
+        if (creation.created) {
+          return res.status(200).json({error: false});
         } else {
-          return res.status(403).json({error: true, message: "Account Doesn't Exist"});
+          return res.status(200).json({error: true});
         }
       });
     });
