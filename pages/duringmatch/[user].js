@@ -6,6 +6,7 @@ import cookie from 'js-cookie';
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 import Team from '../../components/teamduring';
+import Footer from '../../components/footer';
 
 export default function DuringMatch() {
   const router = useRouter();
@@ -51,10 +52,12 @@ export default function DuringMatch() {
       <div className="DuringMatch">
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><Link href={`/duringmatchform/${user}`} as={ process.env.PUBLIC_URL + '/duringmatchform/' + user}><button type="submit" id="scoutteam">Scout New Match</button></Link></div>
         {content}
-        {arr.map((ele) => (
-          <Team blue={ele.blue} red={ele.red} notes={ele.notes} key={ele.teamnumber} />
+        {arr.map((ele, i) => (
+          <Team blue={ele.blue} red={ele.red} notes={ele.notes} index={i} key={ele.teamnumber} />
         ))}
       </div>
+
+      <Footer />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import cookie from 'js-cookie';
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 import Team from '../../components/team';
+import Footer from '../../components/footer';
 
 export default function Search() {
   const router = useRouter();
@@ -78,6 +79,8 @@ export default function Search() {
       <Top name="Search" />
       <Nav name="Search" user={user} />
       <div className="Search">{content}{results}</div>
+
+      <Footer />
     </div>
   );
 };

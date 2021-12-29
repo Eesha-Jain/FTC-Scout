@@ -1,4 +1,5 @@
 import Top from '../../components/top';
+import Footer from '../../components/footer';
 import Nav from '../../components/navV2';
 import Router, { useRouter } from 'next/router';
 import cookie from 'js-cookie';
@@ -90,6 +91,8 @@ export default function Search() {
           <Team user={ele} key={ele.teamnumber} />
         ))}
       </div>
+
+      <Footer />
     </div>
   );
 };

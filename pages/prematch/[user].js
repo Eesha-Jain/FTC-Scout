@@ -6,6 +6,7 @@ import cookie from 'js-cookie';
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 import Team from '../../components/team';
+import Footer from '../../components/footer';
 
 export default function PreMatch() {
   const router = useRouter();
@@ -94,6 +95,8 @@ export default function PreMatch() {
           <Team user={ele} key={ele.teamnumber} />
         ))}
       </div>
+
+      <Footer />
     </div>
   );
 };

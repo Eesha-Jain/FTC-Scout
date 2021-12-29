@@ -2,14 +2,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { faSquare } from '@fortawesome/free-regular-svg-icons';
 
-export default function Team({blue, red, notes}) {
+export default function Team({blue, red, index, notes}) {
     const width = 18;
   
     return (
       <div className="Team" id="DuringTeam">
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="surroundingBox"><div className="grid">
-          <div className="blue teamsearch">
-            <div>
+        <div className="surroundingBox">
+
+          <h2>Match {index}</h2>
+
+          <div className="blue teambox">
+            <div className="grid-item">
               <h2>Blue Alliance</h2>
               <p className="score"><b>Score</b> - {blue.teaminfo[4]}</p>
               <p className="score"><b>Penalities</b> - {blue.penalities[0]}</p>
@@ -17,7 +20,7 @@ export default function Team({blue, red, notes}) {
               <p className="score"><b>{blue.teaminfo[3]}</b> - {blue.teaminfo[2].toUpperCase()}</p>
             </div>
             
-            <div>
+            <div className="grid-item">
               <h4>Autonomous</h4>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{blue.auto[0]}</p>&nbsp;&nbsp; <p>Robots fully Parked in Warehouse</p></span>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{blue.auto[1]}</p>&nbsp;&nbsp; <p>Robots Partially Parked in Warehouse</p></span>
@@ -30,7 +33,7 @@ export default function Team({blue, red, notes}) {
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{blue.auto[8]}</p>&nbsp;&nbsp; <p>Freight in Alliance Shipping Hub</p></span>
             </div>
       
-            <div>
+            <div className="grid-item">
               <h4>Tele-Op</h4>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{blue.tele[0]}</p>&nbsp;&nbsp; <p>Freight in Alliance Storage Unit</p></span>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{blue.tele[1]}</p>&nbsp;&nbsp; <p>Freight in Alliance Shipping Hub - Level 1</p></span>
@@ -39,7 +42,7 @@ export default function Team({blue, red, notes}) {
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{blue.tele[4]}</p>&nbsp;&nbsp; <p>Shared Shipping Hub</p></span>
             </div>
       
-            <div>
+            <div className="grid-item">
               <h4>Endgame</h4>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{blue.endgame[0]}</p>&nbsp;&nbsp; <p>Ducks Delivered via Carousel</p></span>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{blue.endgame[1]}</p>&nbsp;&nbsp; <p>TSE Capped on Alliance Shipping Hub</p></span>
@@ -49,8 +52,8 @@ export default function Team({blue, red, notes}) {
             </div>
           </div>
 
-          <div className="red teamsearch">
-            <div>
+          <div className="red teambox">
+            <div className="grid-item">
               <h2>Red Alliance</h2>
               <p className="score"><b>Score</b> - {red.teaminfo[4]}</p>
               <p className="score"><b>Penalities</b> - {red.penalities[0]}</p>
@@ -58,7 +61,7 @@ export default function Team({blue, red, notes}) {
               <p className="score"><b>{red.teaminfo[3]}</b> - {red.teaminfo[2].toUpperCase()}</p>
             </div>
             
-            <div>
+            <div className="grid-item">
               <h4>Autonomous</h4>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{red.auto[0]}</p>&nbsp;&nbsp; <p>Robots fully Parked in Warehouse</p></span>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{red.auto[1]}</p>&nbsp;&nbsp; <p>Robots Partially Parked in Warehouse</p></span>
@@ -71,7 +74,7 @@ export default function Team({blue, red, notes}) {
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{red.auto[8]}</p>&nbsp;&nbsp; <p>Freight in Alliance Shipping Hub</p></span>
             </div>
       
-            <div>
+            <div className="grid-item">
               <h4>Tele-Op</h4>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{red.tele[0]}</p>&nbsp;&nbsp; <p>Freight in Alliance Storage Unit</p></span>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{red.tele[1]}</p>&nbsp;&nbsp; <p>Freight in Alliance Shipping Hub - Level 1</p></span>
@@ -80,7 +83,7 @@ export default function Team({blue, red, notes}) {
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{red.tele[4]}</p>&nbsp;&nbsp; <p>Shared Shipping Hub</p></span>
             </div>
       
-            <div>
+            <div className="grid-item">
               <h4>Endgame</h4>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{red.endgame[0]}</p>&nbsp;&nbsp; <p>Ducks Delivered via Carousel</p></span>
               <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{red.endgame[1]}</p>&nbsp;&nbsp; <p>TSE Capped on Alliance Shipping Hub</p></span>
@@ -89,7 +92,7 @@ export default function Team({blue, red, notes}) {
               <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={red.endgame[4] ? faCheckSquare : faSquare} width={width}/> &nbsp;Shared Shipping Hub Tilted</p>
             </div>
           </div>
-        </div></div>
+        </div>
       </div>
     );
   }
