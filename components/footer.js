@@ -9,7 +9,6 @@ export default function Footer() {
       <br />
       
       <div className="Footer">
-        <div className="footerPt1"></div>
         <div className="footerPt2">
           <h4>© High Definition 2021 | All Rights Reserved | Designed by <a href="https://github.com/Eesha-Jain" target="_blank" style={{color: 'lightgray', textDecoration: 'none'}}>Eesha Jain</a> from <a href="https://ftc18225.everstem.org/" target="_blank" style={{color: 'lightgray', textDecoration: 'none'}}>FTC Team #18225</a></h4>
         </div>
