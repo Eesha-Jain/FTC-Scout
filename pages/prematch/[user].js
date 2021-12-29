@@ -92,7 +92,7 @@ export default function PreMatch() {
         </div>
         {content}
         {arr.map((ele) => (
-          <Team user={ele} key={ele.teamnumber} />
+          <Team user={ele} teamnumber={user} prematch={true} key={ele.teamnumber} />
         ))}
       </div>
 

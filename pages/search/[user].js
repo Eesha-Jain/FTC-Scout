@@ -35,11 +35,11 @@ export default function Search() {
       if (res.user.length > 0) {
         setResults(
           <>
-              {
-                  res.user.map((ele) => (
-                      <Team user={ele} key={ele.teamnumber} />
-                  ))
-              }
+            {
+              res.user.map((ele) => (
+                <Team user={ele} teamnumber={user} prematch={false} key={ele.teamnumber} />
+              ))
+            }
           </>
         );
       } else {

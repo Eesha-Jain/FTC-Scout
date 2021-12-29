@@ -53,7 +53,7 @@ export default function DuringMatch() {
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><Link href={`/duringmatchform/${user}`} as={ process.env.PUBLIC_URL + '/duringmatchform/' + user}><button type="submit" id="scoutteam">Scout New Match</button></Link></div>
         {content}
         {arr.map((ele, i) => (
-          <Team blue={ele.blue} red={ele.red} notes={ele.notes} index={i} key={ele.teamnumber} />
+          <Team blue={ele.blue} red={ele.red} notes={ele.notes} index={i} teamnumber={user} key={ele.teamnumber} />
         ))}
       </div>
 
