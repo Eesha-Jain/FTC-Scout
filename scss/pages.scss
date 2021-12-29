@@ -184,7 +184,7 @@
 }
 
 .State, .PreMatch, .DuringMatch {
-    #scoutteam {
+    #scoutteam, .button {
         border: 1px solid $orange;
         background: $orange;
         font-family: 'Roboto Condensed';
@@ -193,8 +193,10 @@
         border-radius: 50px;
         cursor: pointer;
         font-size: 16px;
-        padding: 8px 100px;
-        margin: 20px;
+        padding: 8px 0px;
+        margin: 5px;
+        text-decoration: none;
+        width: 300px;
     }
 
     .filters {

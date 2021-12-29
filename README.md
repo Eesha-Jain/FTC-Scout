@@ -1,4 +1,17 @@
 # FTC Scouting
-This is a website for FIRST Tech Challenge students to use for scouting.
+Has your team faced trouble with maintaining efficient scouting during matches? Maybe there's too many papers to keep track of or your team hasn't found an organized system that works for your team. 
 
-This tool was created by FTC Team 18225, [High Definition](https://ftc18225.everstem.org/).
+Check out the scouting app [here] (https://ftc18225-scouting-app.herokuapp.com/).
+
+## Features
+
+This app contains many functionalities in one!
+
+* Pre-Match Scouting: includes sort by filter
+* During-Match Scouting
+* Team Capabilities: show what your team can do
+* Search: search for other teams on the platform, check out teams in state and sort them by filter
+
+## Credits
+
+This tool was developed by [Eesha Jain] (https://github.com/Eesha-Jain/) from FTC Team 18225, [High Definition](https://ftc18225.everstem.org/) from Bellevue, Washington.

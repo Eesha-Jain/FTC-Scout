@@ -80,7 +80,15 @@ export default function PreMatch() {
       <Nav name="PreMatch" user={user} />
         
       <div className="PreMatch">
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><Link href={`/prematchform/${user}`} as={ process.env.PUBLIC_URL + '/prematchform/' + user}><button type="submit" id="scoutteam">Scout New Team</button></Link></div>
+        <br />
+
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <Link href={`/prematchform/${user}`} as={ process.env.PUBLIC_URL + '/prematchform/' + user}><button type="submit" id="scoutteam">Scout New Team</button></Link>
+        </div>
+
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <Link href="/documents/FTCPreMatchScouting.pdf" target="_blank" download id="ftcprematchdownloadbutton"><a className="button">Download Paper Sheet</a></Link>
+        </div>
 
         <div className="filters grid">
           <div className="filterele">Sort By: </div>
