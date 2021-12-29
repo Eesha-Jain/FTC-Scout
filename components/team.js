@@ -45,6 +45,20 @@ export default function Team({user}) {
             <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.endgame[4] ? faCheckSquare : faSquare} width={width}/> &nbsp; Parked Partially in Warehouse</p>
             <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{user.endgame[5]}</p>&nbsp;&nbsp; <p>Delivery via Carousel</p></span>
           </div>
+
+          <div>
+            <h2>Notes</h2>
+            {
+              user.notes.split("\n").map(function(item, idx) {
+                return (
+                  <div key={idx}>
+                    <p style={{fontWeight: 300}}>{item}</p>
+                    <br/>
+                  </div>
+                 )
+              })
+            }
+          </div>
         </div>
       </div>
     );
