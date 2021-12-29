@@ -225,12 +225,12 @@ export default function Account () {
                     <table className="capability"><tbody>
                       <tr>
                         <td><label>Freight in Alliance Storage Unit: </label></td>
-                        <td><input type="number" min="0" max="100" value={auto[7]} onChange={(e) => update(1, 7, Number(e.target.value))}/></td>
+                        <td><input type="number" min="0" max="100" value={auto[7]} onChange={(e) => update(1, 7, e.target.value)} required/></td>
                       </tr>
 
                       <tr>
                         <td><label>Freight on Alliance Shipping Hub: </label></td>
-                        <td><input type="number" min="0" max="100" value={auto[8]} onChange={(e) => update(1, 8, Number(e.target.value))}/></td>
+                        <td><input type="number" min="0" max="100" value={auto[8]} onChange={(e) => update(1, 8, e.target.value)} required/></td>
                       </tr>
                     </tbody></table>
 
@@ -244,27 +244,27 @@ export default function Account () {
                     <table className="capability"><tbody>
                       <tr>
                         <td><label>Freight in Alliance Storage Unit: </label></td>
-                        <td><input type="number" min="0" max="100" value={tele[0]} onChange={(e) => update(2, 0, Number(e.target.value))}/></td>
+                        <td><input type="number" min="0" max="100" value={tele[0]} onChange={(e) => update(2, 0, e.target.value)} required/></td>
                       </tr>
 
                       <tr>
                         <td><label>Alliance Shipping Hub - Level 1: </label></td>
-                        <td><input type="number" min="0" max="100" value={tele[1]} onChange={(e) => update(2, 1, Number(e.target.value))}/></td>
+                        <td><input type="number" min="0" max="100" value={tele[1]} onChange={(e) => update(2, 1, e.target.value)} required/></td>
                       </tr>
 
                       <tr>
                         <td><label>Alliance Shipping Hub - Level 2: </label></td>
-                        <td><input type="number" min="0" max="100" value={tele[2]} onChange={(e) => update(2, 2, Number(e.target.value))}/></td>
+                        <td><input type="number" min="0" max="100" value={tele[2]} onChange={(e) => update(2, 2, e.target.value)} required/></td>
                       </tr>
 
                       <tr>
                         <td><label>Alliance Shipping Hub - Level 3: </label></td>
-                        <td><input type="number" min="0" max="100" value={tele[3]} onChange={(e) => update(2, 3, Number(e.target.value))}/></td>
+                        <td><input type="number" min="0" max="100" value={tele[3]} onChange={(e) => update(2, 3, e.target.value)} required/></td>
                       </tr>
 
                       <tr>
                         <td><label>Shared Shipping Hub: </label></td>
-                        <td><input type="number" min="0" max="100" value={tele[4]} onChange={(e) => update(2, 4, Number(e.target.value))}/></td>
+                        <td><input type="number" min="0" max="100" value={tele[4]} onChange={(e) => update(2, 4, e.target.value)} required/></td>
                       </tr>
                     </tbody></table>
 
@@ -307,7 +307,7 @@ export default function Account () {
                     <table className="capability"><tbody>
                       <tr>
                         <td><label>Delivery via Carousel: </label></td>
-                        <td><input type="number" min="0" max="100" value={endgame[5]} onChange={(e) => update(3, 5, Number(e.target.value))}/></td>
+                        <td><input type="number" min="0" max="100" value={endgame[5]} onChange={(e) => update(3, 5, e.target.value)} required/></td>
                       </tr>
                     </tbody></table>
 
@@ -321,7 +321,7 @@ export default function Account () {
                     <table className="capability"><tbody>
                       <tr>
                         <td><label>Best Score: </label></td>
-                        <td><input type="number" min="0" max="1000" value={best[0]} onChange={(e) => update(4, 0, Number(e.target.value))}/></td>
+                        <td><input type="number" min="0" max="1000" value={best[0]} onChange={(e) => update(4, 0, e.target.value)} required/></td>
                       </tr>
                     </tbody></table>
                     
