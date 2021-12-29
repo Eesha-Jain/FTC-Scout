@@ -179,7 +179,52 @@ html, body, input, button, label, div, button, input::placeholder, textarea {
     }
 }
 
-.Team {
+#DuringMatchForm {
+    .grid {
+        grid-template-columns: auto auto !important;
+        margin: 0;
+        padding: 20px;
+        width: 98%;
+    }
+
+    .teamsearch {
+        display: grid;
+        grid-template-columns: auto !important;
+        margin: 0 !important;
+        background-color: $lightgray;
+        padding: 10px;
+    }
+
+    .blue {
+        h2, .score {
+            color: $blue;
+        }
+
+        h4 {
+            color: $blue;
+            background-color: $bluetransparent !important;
+        }
+    }
+
+    .red {
+        h2, .score {
+            color: $red;
+        }
+
+        h4 {
+            color: $red;
+            background-color: $redtransparent !important;
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+        .grid {
+            grid-template-columns: auto !important;
+        }
+    }
+}
+
+.Team, #DuringMatchForm {
     .teamsearch {
         display: grid;
         grid-template-columns: 20% auto auto auto;
