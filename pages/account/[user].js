@@ -331,16 +331,6 @@ export default function Account () {
               </div>
             </div>
           </div>
-
-          <div className="interior margin">
-            <h1>Additional Notes</h1>
-
-            <form onSubmit={updateNotes}>
-              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><textarea rows="10" placeholder="Enter your message..." value={notes} onChange={(e) => {setNotes(e.target.value)}}></textarea></div>
-              
-              <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><button id="submit" className="save" type="submit">Save Data</button></div>
-            </form>
-          </div>
           </div>
         );
       })

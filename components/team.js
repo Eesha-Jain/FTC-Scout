@@ -12,6 +12,7 @@ export default function Team({user}) {
             <h2>{user.teamnumber} - {user.teamname.toUpperCase()}</h2>
             <p><b>Best Score:</b> {user.best[0]}</p>
             <p><b>State:</b> {user.state}</p>
+            <p><b>Email:</b> <a href={`mailto:${user.email}`}>{user.email}</a></p>
           </div>
           
           <div>
@@ -46,7 +47,7 @@ export default function Team({user}) {
             <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{user.endgame[5]}</p>&nbsp;&nbsp; <p>Delivery via Carousel</p></span>
           </div>
 
-          <div>
+          {user.notes ? <div>
             <h2>Notes</h2>
             {
               user.notes.split("\n").map(function(item, idx) {
@@ -58,7 +59,7 @@ export default function Team({user}) {
                  )
               })
             }
-          </div>
+          </div>:<></>}
         </div>
       </div>
     );
