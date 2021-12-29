@@ -11,9 +11,9 @@ const client = new MongoClient(process.env.URI, {
   useUnifiedTopology: true,
 });
 
-async function updateUser(db, teamnumber, blue, red, callback) {
+async function updateUser(db, teamnumber, blue, red, notes, callback) {
   const collection = db.collection('accounts');
-  const dic = {blue, red};
+  const dic = {blue, red, notes};
 
   await collection.updateOne(
     { "teamnumber" : teamnumber },
@@ -30,7 +30,7 @@ export default (req, res) => {
       const db = client.db('users');
       const teamnumber = req.body.teamnumber;
 
-      updateUser(db, teamnumber, req.body.blue, req.body.red, function(creation) {
+      updateUser(db, teamnumber, req.body.blue, req.body.red, req.body.notes, function(creation) {
         if (creation.created) {
           return res.status(200).json({error: false});
         } else {

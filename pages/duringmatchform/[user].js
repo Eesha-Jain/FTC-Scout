@@ -40,7 +40,7 @@ export default function DuringMatchForm() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({teamnumber: user, blue, red})
+      body: JSON.stringify({teamnumber: user, blue, red, notes})
     }).then(res => res.json()).then((data) => {
       if (data.error) {
         setMessage('Error: Try Again');
