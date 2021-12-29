@@ -58,8 +58,6 @@ export default function DuringMatchForm() {
     var dic = {...blue};
     if (side == "red") { dic = {...red}; }
 
-    console.log(value);
-
     if (round == 1) {
       dic.teaminfo[i] = value;
     } else if (round == 2) {
@@ -72,7 +70,9 @@ export default function DuringMatchForm() {
       dic.penalities[i] = value;
     }
 
-    dic.teaminfo[4] = dic.auto[0] * 10 + dic.auto[1] * 5 + dic.auto[2] * 6 + dic.auto[3] * 3 + Number(dic.auto[4]) * 10 + dic.auto[5] * 10 + dic.auto[6] * 20 * dic.auto[7] * 2 * dic.auto[8] * 6 + dic.tele[0] * 1 + dic.tele[1] * 2 + dic.tele[2] * 4 + dic.tele[3] * 6 + dic.tele[4] * 4 + dic.endgame[0] * 6 + dic.endgame[1] * 15 + dic.endgame[2] * 10 + dic.endgame[3] * 20 * dic.endgame[4] * 6 + dic.endgame[5] * 3 - dic.penalities[0];
+    dic.teaminfo[4] = dic.auto[0] * 10 + dic.auto[1] * 5 + dic.auto[2] * 6 + dic.auto[3] * 3 + Number(dic.auto[4]) * 10 + dic.auto[5] * 10 + dic.auto[6] * 20 + dic.auto[7] * 2 + dic.auto[8] * 6 + dic.tele[0] * 1 + dic.tele[1] * 2 + dic.tele[2] * 4 + dic.tele[3] * 6 + dic.tele[4] * 4 + dic.endgame[0] * 6 + dic.endgame[1] * 15 + dic.endgame[2] * 10 + dic.endgame[3] * 20 + dic.endgame[4] * 6 + dic.endgame[5] * 3 - dic.penalities[0];
+
+    console.log(dic.auto);
 
     if (side == "red") { setRed(dic); }
     else { setBlue(dic); }

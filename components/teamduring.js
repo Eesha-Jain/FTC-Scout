@@ -92,6 +92,20 @@ export default function Team({blue, red, index, notes}) {
               <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={red.endgame[4] ? faCheckSquare : faSquare} width={width}/> &nbsp;Shared Shipping Hub Tilted</p>
             </div>
           </div>
+
+          <div>
+            <h2>Notes</h2>
+            {
+              notes.split("\n").map(function(item, idx) {
+                return (
+                  <div key={idx}>
+                    <p style={{fontWeight: 300}}>{item}</p>
+                    <br/>
+                  </div>
+                 )
+              })
+            }
+          </div>
         </div>
       </div>
     );

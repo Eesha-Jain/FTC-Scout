@@ -18,7 +18,7 @@ async function updateUser(db, teamnumber, auto, tele, teaminfo, endgame, best, c
     teamname: teaminfo[1],
     state: teaminfo[2],
     email: teaminfo[3],
-    notes: teaminfo[4].replace(/\n/g, '<br>'),
+    notes: teaminfo[4],
     auto,
     tele,
     endgame,
