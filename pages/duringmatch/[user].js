@@ -5,7 +5,7 @@ import Router, { useRouter } from 'next/router';
 import cookie from 'js-cookie';
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
-import Team from '../../components/team';
+import Team from '../../components/teamduring';
 
 export default function DuringMatch() {
   const router = useRouter();
@@ -51,9 +51,9 @@ export default function DuringMatch() {
       <div className="DuringMatch">
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><Link href={`/duringmatchform/${user}`} as={ process.env.PUBLIC_URL + '/duringmatchform/' + user}><button type="submit" id="scoutteam">Scout New Match</button></Link></div>
         {content}
-        {/*arr.map((ele) => (
-          <Team user={ele} key={ele.teamnumber} />
-        ))*/}
+        {arr.map((ele) => (
+          <Team blue={ele.blue} red={ele.red} notes={ele.notes} key={ele.teamnumber} />
+        ))}
       </div>
     </div>
   );

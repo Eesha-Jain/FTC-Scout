@@ -179,7 +179,22 @@ html, body, input, button, label, div, button, input::placeholder, textarea {
     }
 }
 
-#DuringMatchForm {
+#DuringTeam {
+    .surroundingBox {
+        background-color: $lightgray !important;
+    }
+
+    .teamsearch {
+        display: grid;
+        grid-template-columns: 20% auto auto auto !important;
+        background-color: transparent !important;
+        grid-column-gap: 10px;
+        padding: 10px;
+        margin: 20px;
+    }
+}
+
+#DuringMatchForm, #DuringTeam {
     .grid {
         grid-template-columns: auto auto !important;
         margin: 0;
@@ -224,7 +239,7 @@ html, body, input, button, label, div, button, input::placeholder, textarea {
     }
 }
 
-.Team, #DuringMatchForm {
+.Team, #DuringMatchForm, #DuringTeam {
     .teamsearch {
         display: grid;
         grid-template-columns: 20% auto auto auto;
