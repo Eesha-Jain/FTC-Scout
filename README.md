@@ -14,7 +14,7 @@ This app contains many functionalities in one!
 
 ## Credits
 
-This tool was developed by [Eesha Jain] (https://github.com/Eesha-Jain/) from FTC Team 18225, [High Definition](https://ftc18225.everstem.org/) from Bellevue, Washington.
+This tool was developed by [Eesha Jain](https://github.com/Eesha-Jain/) from FTC Team 18225, [High Definition](https://ftc18225.everstem.org/) from Bellevue, Washington.
 
 ## Walkthrough
 
