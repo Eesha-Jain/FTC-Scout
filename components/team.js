@@ -71,7 +71,6 @@ export default function Team({user, teamnumber, prematch}) {
               return (
                 <div key={idx}>
                   <p style={{fontWeight: 300}}>{item}</p>
-                  <br/>
                 </div>
                 )
             })

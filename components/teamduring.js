@@ -115,7 +115,6 @@ export default function Team({teamnumber, blue, red, index, notes}) {
               return (
                 <div key={idx}>
                   <p style={{fontWeight: 300}}>{item}</p>
-                  <br/>
                 </div>
                 )
             })
