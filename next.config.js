@@ -2,7 +2,7 @@ const webpack = require('webpack')
 
 const isProd = (process.env.NODE_ENV || 'production') === 'production'
 
-const publicUrl = isProd ? 'https://ftc18225-scouting-app.herokuapp.com' : 'http://localhost:3000'
+const publicUrl = isProd ? 'http://ftcscout.everstem.org/' : 'http://localhost:3000'
 
 module.exports = {
   images: {
