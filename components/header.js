@@ -10,6 +10,8 @@ export default ({name, title, description, height}) => (
         <h1>{title}</h1>
         <br />
         <p>{description}</p>
+        <br />
+        <p>Questions, comments, or concerns can be emailed to <a href="mailto:firsttechchallengescout@gmail.com">firsttechchallengescout@gmail.com</a></p>
       </div>
     </div>
   </>
