@@ -3,6 +3,8 @@ Has your team faced trouble with maintaining efficient scouting during matches? 
 
 Check out the scouting app [here](https://ftcscout.herokuapp.com/).
 
+Questions, comments, or concerns can be emailed to firsttechchallengescout@gmail.com.
+
 ## Features
 
 This app contains many functionalities in one!
