@@ -1,7 +1,7 @@
 {
   "name": "ftc-scouting",
   "version": "0.1.0",
-  "description": "FTC Scouting is a website where FIRST Tech Challenge teams can easily scout pre-match and during matches. This tool was developed by High Definition.",
+  "description": "FTC Scout is a website where FIRST Tech Challenge teams can easily scout! This combines many functionalities including pre-match scouting, during-match scouting, and searching for teams.",
   "main": "index.js",
   "engines": {
     "node": "14.x",
