@@ -20,4 +20,4 @@ This tool was developed by [Eesha Jain](https://github.com/Eesha-Jain/) from FTC
 
 Here is a walkthrough of the platform:
 
-https://user-images.githubusercontent.com/68827992/147714743-a1a1795e-d517-41c2-ae71-c7741ae58076.mp4
+https://user-images.githubusercontent.com/68827992/147803499-1fc5b791-fc4f-4978-a0dd-f5d8b3f004a0.mp4
