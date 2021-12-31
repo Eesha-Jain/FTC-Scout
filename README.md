@@ -1,7 +1,7 @@
 # FTC Scouting
 Has your team faced trouble with maintaining efficient scouting during matches? Maybe there's too many papers to keep track of or your team hasn't found an organized system that works for your team. 
 
-Check out the scouting app [here](https://ftc18225-scouting-app.herokuapp.com/).
+Check out the scouting app [here](https://ftcscout.herokuapp.com/).
 
 ## Features
 
