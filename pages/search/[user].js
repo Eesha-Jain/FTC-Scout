@@ -12,7 +12,12 @@ export default function Search() {
   const router = useRouter();
   const { user } = router.query;
   const [content, setContent] = useState();
-  const [results, setResults] = useState(<div style={{display: 'flex', justifyContent: 'center'}}><Link href={`/state/${user}`} as={ process.env.PUBLIC_URL + '/state/' + user}><button type="submit" className="searchButton" style={{borderRadius: 50, padding: 8, paddingLeft: 20, paddingRight: 20, fontWeight: 300}}>See Teams in State</button></Link></div>);
+  const [results, setResults] = useState(
+  <div>
+    <div style={{display: 'flex', justifyContent: 'center'}}><Link href={`/state/${user}`} as={ process.env.PUBLIC_URL + '/state/' + user}><button type="submit" className="searchButton" style={{borderRadius: 50, padding: 8, paddingLeft: 20, paddingRight: 20, fontWeight: 300}}>See Teams in State</button></Link></div>
+    <br />
+    <div style={{display: 'flex', justifyContent: 'center'}}><Link href={`/state/${user}`} as={ process.env.PUBLIC_URL + '/allteams/' + user}><button type="submit" className="searchButton" style={{borderRadius: 50, padding: 8, paddingLeft: 20, paddingRight: 20, fontWeight: 300}}>See Teams on App</button></Link></div>
+  </div>);
   const [search, setSearch] = useState("");
   const [message, setMessage] = useState("");
 
