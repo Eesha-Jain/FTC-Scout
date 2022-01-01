@@ -83,16 +83,21 @@ export default function PreMatch() {
         <br />
 
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          <Link href={`/prematchform/${user}`} as={ process.env.PUBLIC_URL + '/prematchform/' + user}><button type="submit" id="scoutteam" style={{fontWeight: 300}}>Scout New Team</button></Link>
+          <Link href={`/prematch/${user}`} as={ process.env.PUBLIC_URL + '/prematch/' + user}><button type="submit" id="scoutteam" style={{fontWeight: 300}}>Go Back</button></Link>
         </div>
 
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          <Link href="/documents/FTCPreMatchScouting.pdf" target="_blank" download id="ftcprematchdownloadbutton"><a className="button" style={{fontWeight: 300}}>Download Paper Sheet</a></Link>
+        <div className="filters grid">
+          <div className="filterele">Sort By: </div>
+          <div className="filterele"><button onClick={bestscore}>Best Score</button></div>
+          <div className="filterele"><button onClick={teamnumbers}>Team Number</button></div>
+          <div className="filterele"><button onClick={autonomous}>Autonomous</button></div>
+          <div className="filterele"><button onClick={teleop}>Tele-Op</button></div>
+          <div className="filterele"><button onClick={endgame}>Endgame</button></div>
         </div>
-
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          <Link href={`/viewprematches/${user}`} as={ process.env.PUBLIC_URL + '/viewprematches/' + user}><button type="submit" id="scoutteam" style={{fontWeight: 300}}>View Scouted Teams</button></Link>
-        </div>
+        {content}
+        {arr.map((ele) => (
+          <Team user={ele} teamnumber={user} prematch={true} key={ele.teamnumber} />
+        ))}
       </div>
 
       <Footer />
