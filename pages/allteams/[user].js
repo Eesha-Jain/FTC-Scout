@@ -82,7 +82,7 @@ export default function Search() {
         <div className="grid">
           {arr.map((ele) => (
             <div className="grid-element" style={{backgroundColor: 'rgb(246, 246, 246)', padding: 10, textAlign: 'center'}}>
-              <h2>{ele.teamname}: {ele.teamnumber}</h2>
+              <h2>{ele.teamnumber}: {ele.teamname}</h2>
               <p>State: {ele.state}</p>
               <p>Score: {ele.best[0]}</p>
               <p>Email: <a href={`mailto:${ele.email}`}>{ele.email}</a></p>
