@@ -32,7 +32,7 @@
                 margin-right: 5px;
             }
             
-            input {
+            input, select, option {
                 outline: none;
                 border: 1px solid $logogray;
                 border-radius: 3px;
@@ -40,6 +40,10 @@
                 width: 98%;
                 margin: 1px;
                 font-weight: 300;
+            }
+
+            select, option {
+                width: 99% !important;
             }
             
             .submit {
