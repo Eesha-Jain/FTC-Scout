@@ -11,7 +11,7 @@ export default ({name, title, description, height}) => (
         <br />
         <p>{description}</p>
         <br />
-        <p>Questions, comments, or concerns can be emailed to <a href="mailto:firsttechchallengescout@gmail.com">firsttechchallengescout@gmail.com</a></p>
+        <p>How can we make this better? Email <a href="mailto:firsttechchallengescout@gmail.com">firsttechchallengescout@gmail.com</a></p>
       </div>
     </div>
   </>
