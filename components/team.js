@@ -25,9 +25,12 @@ export default function Team({user, teamnumber, prematch}) {
       <div className="teamsearch">
         <div>
           <h2>{user.teamnumber} - {user.teamname.toUpperCase()}</h2>
-          <p><b>Best Score:</b> {user.best[0]}</p>
           <p><b>State:</b> {user.state}</p>
           <p><b>Email:</b> <a href={`mailto:${user.email}`} style={{color: 'orange'}}>{user.email}</a></p>
+
+          <br />
+          <p><b>Best Score:</b> {user.best[0]}</p>
+          { user.best[1] ? <p><b>Robot Can Go Over Pipes? </b> {user.best[1] ? "Yes" : "No"}</p> : <></> }
 
           {prematch ? <div><br /><button onClick={deleteEntry}>DELETE ENTRY</button></div> : <></>}
         </div>
@@ -52,6 +55,7 @@ export default function Team({user, teamnumber, prematch}) {
           <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{user.tele[2]}</p>&nbsp;&nbsp; <p>Freight in Alliance Shipping Hub - Level 2</p></span>
           <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{user.tele[3]}</p>&nbsp;&nbsp; <p>Freight in Alliance Shipping Hub - Level 3</p></span>
           <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{user.tele[4]}</p>&nbsp;&nbsp; <p>Shared Shipping Hub</p></span>
+          { user.tele[5] ? <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{user.tele[5]}</p>&nbsp;&nbsp; <p>Average Cycle Speed (sec)</p></span> : <></> }
         </div>
   
         <div>

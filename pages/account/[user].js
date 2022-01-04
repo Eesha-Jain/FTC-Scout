@@ -14,9 +14,9 @@ export default function Account () {
   const [content, setContent] = useState(<p style={{textAlign: 'center'}}>Loading...</p>);
   const [teamnumber, setTeamNumber] = useState(0);
   const [auto, setAuto] = useState([false, false, false, false, false, false, false, 0, 0]);
-  const [tele, setTele] = useState([0, 0, 0, 0, 0]);
+  const [tele, setTele] = useState([0, 0, 0, 0, 0, 0]);
   const [endgame, setEndgame] = useState([false, false, false, false, false, 0]);
-  const [best, setBest] = useState([0]);
+  const [best, setBest] = useState([0, false]);
   const [updates, setUpdates] = useState(0);
   const [notes, setNotes] = useState("");
 
@@ -266,6 +266,11 @@ export default function Account () {
                         <td><label>Shared Shipping Hub: </label></td>
                         <td><input type="number" min="0" max="100" value={tele[4]} onChange={(e) => update(2, 4, e.target.value)} required/></td>
                       </tr>
+
+                      <tr>
+                        <td><label>Average Cycle Speed (sec): </label></td>
+                        <td><input type="number" min="0" max="100" value={tele[5]} onChange={(e) => update(2, 5, e.target.value)} required/></td>
+                      </tr>
                     </tbody></table>
 
                     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><button id="submit" className="save" type="submit">Save Data</button></div>
@@ -319,6 +324,11 @@ export default function Account () {
                   <h4>Matches</h4>
                   <form onSubmit={bestScore}>
                     <table className="capability"><tbody>
+                      <tr>
+                        <td><label>Robot Drive on Top of Pipes</label></td>
+                        <td><input type="checkbox" checked={best[1]} onChange={() => update(4, 1, !best[1])}/></td>
+                      </tr>
+
                       <tr>
                         <td><label>Best Score: </label></td>
                         <td><input type="number" min="0" max="1000" value={best[0]} onChange={(e) => update(4, 0, e.target.value)} required/></td>
