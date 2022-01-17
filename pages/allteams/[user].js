@@ -13,36 +13,6 @@ export default function Search() {
   const [content, setContent] = useState(<p style={{textAlign: 'center'}}>Loading...</p>);
   const [arr, setArr] = useState([]);
 
-  const bestscore = () => {
-    var dup = [...arr];
-    dup.sort(function(a,b) { return b.best[0] - a.best[0] });
-    setArr(dup);
-  }
-
-  const teamnumbers = () => {
-    var dup = [...arr];
-    dup.sort(function(a,b) { return a.teamnumber - b.teamnumber });
-    setArr(dup);
-  }
-
-  const autonomous = () => {
-    var dup = [...arr];
-    dup.sort(function(a,b) { return (Number(b.auto[0]) * 10 + Number(b.auto[1]) * 6 + Number(b.auto[2]) * 3 + Number(b.auto[3]) * 10 + Number(b.auto[4]) * 5 + Number(b.auto[5]) * 10 + Number(b.auto[6]) * 20 + b.auto[7] * 2 + b.auto[8] * 6) - (Number(a.auto[0]) * 10 + Number(a.auto[1]) * 6 + Number(a.auto[2]) * 3 + Number(a.auto[3]) * 10 + Number(a.auto[4]) * 5 + Number(a.auto[5]) * 10 + Number(a.auto[6]) * 20 + a.auto[7] * 2 + a.auto[8] * 6) });
-    setArr(dup);
-  }
-
-  const teleop = () => {
-    var dup = [...arr];
-    dup.sort(function(a,b) { return (b.tele[0] + b.tele[1] * 2 + b.tele[2] * 4 + b.tele[3] * 6 + b.tele[4] * 4) - (a.tele[0] + a.tele[1] * 2 + a.tele[2] * 4 + a.tele[3] * 6 + a.tele[4] * 4) });
-    setArr(dup);
-  }
-
-  const endgame = () => {
-    var dup = [...arr];
-    dup.sort(function(a,b) { return (Number(b.endgame[0]) * 10 + Number(b.endgame[1]) * 20 + Number(b.endgame[2]) * 15 + Number(b.endgame[3]) * 6 + Number(b.endgame[4]) * 3 + b.endgame[5] * 6) - (Number(a.endgame[0]) * 10 + Number(a.endgame[1]) * 20 + Number(a.endgame[2]) * 15 + Number(a.endgame[3]) * 6 + Number(a.endgame[4]) * 3 + a.endgame[5] * 6) });
-    setArr(dup);
-  }
-
   useEffect(() => {
     if (!user) { return; }
 
@@ -71,6 +41,11 @@ export default function Search() {
     } else {
       run();
     }
+
+    if (localStorage.getItem('loggedIn') == 'true') {
+      alert("Already logged into " + user);
+      localStorage.removeItem('loggedIn');
+    }
   }, [user, arr]);
 
   return (
@@ -84,7 +59,7 @@ export default function Search() {
             <div className="grid-element" style={{backgroundColor: 'rgb(246, 246, 246)', padding: 10, textAlign: 'center'}}>
               <h2>{ele.teamnumber}: {ele.teamname}</h2>
               <p>State: {ele.state}</p>
-              <p>Score: {ele.best[0]}</p>
+              <p>Best Score: {ele.best[0]}</p>
               <p>Email: <a href={`mailto:${ele.email}`}>{ele.email}</a></p>
             </div>
           ))}

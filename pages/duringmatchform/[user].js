@@ -86,6 +86,153 @@ export default function DuringMatchForm() {
       <div className="surround margin">
         <form onSubmit={addTeam}>
           <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><div className="grid">
+          <div className="red teamsearch">
+              <div>
+                <h2>RED ALLIANCE</h2>
+                <p className="score"><b>Score:</b> {red.teaminfo[4]}</p>
+              </div>
+
+              <div>
+                <h4>Team Information</h4>
+                <table className="capability info"><tbody>
+                  <tr>
+                    <td><label>Team 1 Name: </label></td>
+                    <td><input type="text" value={red.teaminfo[0]} onChange={(e) => update("red", 1, 0, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Team 1 Number: </label></td>
+                    <td><input type="number" min="0" value={red.teaminfo[1]} onChange={(e) => update("red", 1, 1, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Team 2 Name: </label></td>
+                    <td><input type="text" value={red.teaminfo[2]} onChange={(e) => update("red", 1, 2, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Team 2 Number: </label></td>
+                    <td><input type="number" min="0" value={red.teaminfo[3]} onChange={(e) => update("red", 1, 3, e.target.value)} required/></td>
+                  </tr>
+                </tbody></table>
+              </div>
+              
+              <div>
+                <h4>Autonomous</h4>
+                <table className="capability"><tbody>
+                  <tr>
+                    <td><label>Number of Robots Fully Parked in Warehouse: </label></td>
+                    <td><input type="number" min="0" max="2" value={red.auto[0]} onChange={(e) => update("red", 2, 0, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Number of Robots Partially Parked in Warehouse: </label></td>
+                    <td><input type="number" min="0" max="2" value={red.auto[1]} onChange={(e) => update("red", 2, 1, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Number of Robots Fully Parked in Storage Unit: </label></td>
+                    <td><input type="number" min="0" max="2" value={red.auto[2]} onChange={(e) => update("red", 2, 2, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Number of Robots Partially Parked in Storage Unit: </label></td>
+                    <td><input type="number" min="0" max="2" value={red.auto[3]} onChange={(e) => update("red", 2, 3, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Duck Delivered from Carousel</label></td>
+                    <td><input type="checkbox" checked={red.auto[4]} onChange={() => update("red", 2, 4, !red.auto[4])}/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Number of Ducks on Right Shipped Hub Level: </label></td>
+                    <td><input type="number" min="0" max="2" value={red.auto[5]} onChange={(e) => update("red", 2, 5, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Number of TSE on Right Shipped Hub Level: </label></td>
+                    <td><input type="number" min="0" max="2" value={red.auto[6]} onChange={(e) => update("red", 2, 6, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Freight in Shipping Unit: </label></td>
+                    <td><input type="number" min="0" max="100" value={red.auto[7]} onChange={(e) => update("red", 2, 7, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Freight on Alliance Shipping Hub: </label></td>
+                    <td><input type="number" min="0" max="100" value={red.auto[8]} onChange={(e) => update("red", 2, 8, e.target.value)} required/></td>
+                  </tr>
+                </tbody></table>
+              </div>
+        
+              <div>
+                <h4>Tele-Op</h4>
+                <table className="capability"><tbody>
+                  <tr>
+                    <td><label>Freight in Shipping Unit: </label></td>
+                    <td><input type="number" min="0" max="100" value={red.tele[0]} onChange={(e) => update("red", 3, 0, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Freight on Alliance Shipping Hub - Level 1: </label></td>
+                    <td><input type="number" min="0" max="100" value={red.tele[1]} onChange={(e) => update("red", 3, 1, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Freight on Alliance Shipping Hub - Level 2: </label></td>
+                    <td><input type="number" min="0" max="100" value={red.tele[2]} onChange={(e) => update("red", 3, 2, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Freight on Alliance Shipping Hub - Level 3: </label></td>
+                    <td><input type="number" min="0" max="100" value={red.tele[3]} onChange={(e) => update("red", 3, 3, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Freight on Shared Shipping Hub: </label></td>
+                    <td><input type="number" min="0" max="100" value={red.tele[4]} onChange={(e) => update("red", 3, 4, e.target.value)} required/></td>
+                  </tr>
+                </tbody></table>
+              </div>
+        
+              <div>
+                <h4>Endgame</h4>
+                <table className="capability"><tbody>
+                  <tr>
+                    <td><label>Number of Robots Completely Parked in Warehouse: </label></td>
+                    <td><input type="number" min="0" max="2" value={red.endgame[2]} onChange={(e) => update("red", 4, 2, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Number of Robots Partially Parked in Warehouse: </label></td>
+                    <td><input type="number" min="0" max="2" value={red.endgame[3]} onChange={(e) => update("red", 4, 3, e.target.value)} required/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Alliance Shipping Hub Balanced</label></td>
+                    <td><input type="checkbox" checked={red.endgame[4]} onChange={() => update("red", 4, 4, !red.endgame[4])}/></td>
+                  </tr>
+
+                  <tr>
+                    <td><label>Shared Shipping Hub Tilted</label></td>
+                    <td><input type="checkbox" checked={red.endgame[5]} onChange={() => update("red", 4, 5, !red.endgame[5])}/></td>
+                  </tr>
+                </tbody></table>
+              </div>
+
+              <div>
+                <h4>Penalities</h4>
+                <table className="capability"><tbody>
+                  <tr>
+                    <td><label>Penalty Points: </label></td>
+                    <td><input type="number" min="0" max="1000" value={red.penalities[0]} onChange={(e) => update("red", 5, 0, e.target.value)} required/></td>
+                  </tr>
+                </tbody></table>
+              </div>
+            </div>
+
             <div className="blue teamsearch">
               <div>
                 <h2>BLUE ALLIANCE</h2>
@@ -202,7 +349,7 @@ export default function DuringMatchForm() {
                 <table className="capability"><tbody>
                   <tr>
                     <td><label>Ducks Delivered on Carousel: </label></td>
-                    <td><input type="number" min="0" max="11" value={blue.endgame[0]} onChange={(e) => update("blue", 4, 0, e.target.value)} required/></td>
+                    <td><input type="number" min="0" max="10" value={blue.endgame[0]} onChange={(e) => update("blue", 4, 0, e.target.value)} required/></td>
                   </tr>
 
                   <tr>
@@ -238,163 +385,6 @@ export default function DuringMatchForm() {
                   <tr>
                     <td><label>Penalty Points: </label></td>
                     <td><input type="number" min="0" max="1000" value={blue.penalities[0]} onChange={(e) => update("blue", 5, 0, e.target.value)} required/></td>
-                  </tr>
-                </tbody></table>
-              </div>
-            </div>
-
-            <div className="red teamsearch">
-              <div>
-                <h2>RED ALLIANCE</h2>
-                <p className="score"><b>Score:</b> {red.teaminfo[4]}</p>
-              </div>
-
-              <div>
-                <h4>Team Information</h4>
-                <table className="capability info"><tbody>
-                  <tr>
-                    <td><label>Team 1 Name: </label></td>
-                    <td><input type="text" value={red.teaminfo[0]} onChange={(e) => update("red", 1, 0, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Team 1 Number: </label></td>
-                    <td><input type="number" min="0" value={red.teaminfo[1]} onChange={(e) => update("red", 1, 1, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Team 2 Name: </label></td>
-                    <td><input type="text" value={red.teaminfo[2]} onChange={(e) => update("red", 1, 2, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Team 2 Number: </label></td>
-                    <td><input type="number" min="0" value={red.teaminfo[3]} onChange={(e) => update("red", 1, 3, e.target.value)} required/></td>
-                  </tr>
-                </tbody></table>
-              </div>
-              
-              <div>
-                <h4>Autonomous</h4>
-                <table className="capability"><tbody>
-                  <tr>
-                    <td><label>Number of Robots Fully Parked in Warehouse: </label></td>
-                    <td><input type="number" min="0" max="2" value={red.auto[0]} onChange={(e) => update("red", 2, 0, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Number of Robots Partially Parked in Warehouse: </label></td>
-                    <td><input type="number" min="0" max="2" value={red.auto[1]} onChange={(e) => update("red", 2, 1, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Number of Robots Fully Parked in Storage Unit: </label></td>
-                    <td><input type="number" min="0" max="2" value={red.auto[2]} onChange={(e) => update("red", 2, 2, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Number of Robots Partially Parked in Storage Unit: </label></td>
-                    <td><input type="number" min="0" max="2" value={red.auto[3]} onChange={(e) => update("red", 2, 3, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Duck Delivered from Carousel</label></td>
-                    <td><input type="checkbox" checked={red.auto[4]} onChange={() => update("red", 2, 4, !red.auto[4])}/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Number of Ducks on Right Shipped Hub Level: </label></td>
-                    <td><input type="number" min="0" max="2" value={red.auto[5]} onChange={(e) => update("red", 2, 5, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Number of TSE on Right Shipped Hub Level: </label></td>
-                    <td><input type="number" min="0" max="2" value={red.auto[6]} onChange={(e) => update("red", 2, 6, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Freight in Shipping Unit: </label></td>
-                    <td><input type="number" min="0" max="100" value={red.auto[7]} onChange={(e) => update("red", 2, 7, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Freight on Alliance Shipping Hub: </label></td>
-                    <td><input type="number" min="0" max="100" value={red.auto[8]} onChange={(e) => update("red", 2, 8, e.target.value)} required/></td>
-                  </tr>
-                </tbody></table>
-              </div>
-        
-              <div>
-                <h4>Tele-Op</h4>
-                <table className="capability"><tbody>
-                  <tr>
-                    <td><label>Freight in Shipping Unit: </label></td>
-                    <td><input type="number" min="0" max="100" value={red.tele[0]} onChange={(e) => update("red", 3, 0, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Freight on Alliance Shipping Hub - Level 1: </label></td>
-                    <td><input type="number" min="0" max="100" value={red.tele[1]} onChange={(e) => update("red", 3, 1, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Freight on Alliance Shipping Hub - Level 2: </label></td>
-                    <td><input type="number" min="0" max="100" value={red.tele[2]} onChange={(e) => update("red", 3, 2, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Freight on Alliance Shipping Hub - Level 3: </label></td>
-                    <td><input type="number" min="0" max="100" value={red.tele[3]} onChange={(e) => update("red", 3, 3, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Freight on Shared Shipping Hub: </label></td>
-                    <td><input type="number" min="0" max="100" value={red.tele[4]} onChange={(e) => update("red", 3, 4, e.target.value)} required/></td>
-                  </tr>
-                </tbody></table>
-              </div>
-        
-              <div>
-                <h4>Endgame</h4>
-                <table className="capability"><tbody>
-                  <tr>
-                    <td><label>Ducks Delivered on Carousel: </label></td>
-                    <td><input type="number" min="0" max="11" value={red.endgame[0]} onChange={(e) => update("red", 4, 0, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Number of TSE Capped on Alliance Shipping Hub: </label></td>
-                    <td><input type="number" min="0" max="2" value={red.endgame[1]} onChange={(e) => update("red", 4, 1, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Number of Robots Completely Parked in Warehouse: </label></td>
-                    <td><input type="number" min="0" max="2" value={red.endgame[2]} onChange={(e) => update("red", 4, 2, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Number of Robots Partially Parked in Warehouse: </label></td>
-                    <td><input type="number" min="0" max="2" value={red.endgame[3]} onChange={(e) => update("red", 4, 3, e.target.value)} required/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Alliance Shipping Hub Balanced</label></td>
-                    <td><input type="checkbox" checked={red.endgame[4]} onChange={() => update("red", 4, 4, !red.endgame[4])}/></td>
-                  </tr>
-
-                  <tr>
-                    <td><label>Shared Shipping Hub Tilted</label></td>
-                    <td><input type="checkbox" checked={red.endgame[5]} onChange={() => update("red", 4, 5, !red.endgame[5])}/></td>
-                  </tr>
-                </tbody></table>
-              </div>
-
-              <div>
-                <h4>Penalities</h4>
-                <table className="capability"><tbody>
-                  <tr>
-                    <td><label>Penalty Points: </label></td>
-                    <td><input type="number" min="0" max="1000" value={red.penalities[0]} onChange={(e) => update("red", 5, 0, e.target.value)} required/></td>
                   </tr>
                 </tbody></table>
               </div>

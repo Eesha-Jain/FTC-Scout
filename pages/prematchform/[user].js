@@ -16,7 +16,7 @@ export default function PreMatchForm() {
   const [auto, setAuto] = useState([false, false, false, false, false, false, false, 0, 0]);
   const [tele, setTele] = useState([0, 0, 0, 0, 0]);
   const [endgame, setEndgame] = useState([false, false, false, false, false, 0]);
-  const [best, setBest] = useState([0]);
+  const [best, setBest] = useState([0, false, 1]);
 
   const addTeam = (e) => {
     e.preventDefault();
@@ -141,7 +141,7 @@ export default function PreMatchForm() {
 
                     <tr>
                       <td><input type="checkbox" checked={auto[6]} onChange={() => update(1, 6, !auto[6])}/></td>
-                      <td><label>Team Storing Element Detect Hub Level</label><br /></td>
+                      <td><label>Team Shipping Element Detect Hub Level</label><br /></td>
                     </tr>
                   </tbody></table>
 
@@ -194,16 +194,6 @@ export default function PreMatchForm() {
                   <h4>Endgame</h4>
                   <table className="capability"><tbody>
                     <tr>
-                      <td><input type="checkbox" checked={endgame[0]} onChange={() => update(3, 0, !endgame[0])}/></td>
-                      <td><label>Alliance Shipping Hub Balanced</label><br /></td>
-                    </tr>
-
-                    <tr>
-                      <td><input type="checkbox" checked={endgame[1]} onChange={() => update(3, 1, !endgame[1])}/></td>
-                      <td><label>Shared Shipping Hub Tipped towards Alliance</label><br /></td>
-                    </tr>
-
-                    <tr>
                       <td><input type="checkbox" checked={endgame[2]} onChange={() => update(3, 2, !endgame[2])}/></td>
                       <td><label>Alliance Shipping Hub Capped</label><br /></td>
                     </tr>
@@ -224,7 +214,7 @@ export default function PreMatchForm() {
                   <table className="capability"><tbody>
                     <tr>
                       <td><label>Delivery via Carousel: </label></td>
-                      <td><input type="number" min="0" max="100" value={endgame[5]} onChange={(e) => update(3, 5, e.target.value)} required/></td>
+                      <td><input type="number" min="0" max="10" value={endgame[5]} onChange={(e) => update(3, 5, e.target.value)} required/></td>
                     </tr>
                   </tbody></table>
                 </div>
@@ -232,10 +222,20 @@ export default function PreMatchForm() {
                 <div className="box">
                   <h4>Matches</h4>
                   <table className="capability"><tbody>
-                    <tr>
-                      <td><label>Best Score: </label></td>
-                      <td><input type="number" min="0" max="1000" value={best[0]} onChange={(e) => update(5, 0, e.target.value)} required/></td>
-                    </tr>
+                      <tr>
+                        <td><label>Robot Drive on Top of Pipes</label></td>
+                        <td><input type="checkbox" checked={best[1]} onChange={() => update(4, 1, !best[1])}/></td>
+                      </tr>
+
+                      <tr>
+                        <td><label>Best Score: </label></td>
+                        <td><input type="number" min="0" max="600" value={best[0]} onChange={(e) => update(4, 0, e.target.value)} required/></td>
+                      </tr>
+
+                      <tr>
+                        <td><label>Average Score: </label></td>
+                        <td><input type="number" min="0" max="600" value={best[2]} onChange={(e) => update(4, 2, e.target.value)} required/></td>
+                      </tr>
                   </tbody></table>
                 </div>
               </div>

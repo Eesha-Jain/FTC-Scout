@@ -30,6 +30,7 @@ export default function Team({user, teamnumber, prematch}) {
 
           <br />
           <p><b>Best Score:</b> {user.best[0]}</p>
+          { user.best[2] ? <p><b>Average Score:</b> {user.best[2]}</p> : <></> }
           { user.best[1] ? <p><b>Robot Can Go Over Pipes? </b> {user.best[1] ? "Yes" : "No"}</p> : <></> }
 
           {prematch ? <div><br /><button onClick={deleteEntry}>DELETE ENTRY</button></div> : <></>}
@@ -43,7 +44,7 @@ export default function Team({user, teamnumber, prematch}) {
           <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.auto[3] ? faCheckSquare : faSquare} width={width}/> &nbsp; Parked Completely in Warehouse</p>
           <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.auto[4] ? faCheckSquare : faSquare} width={width}/> &nbsp; Parked Partially in Warehouse</p>
           <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.auto[5] ? faCheckSquare : faSquare} width={width}/> &nbsp; Duck Detect Shipping Hub Level</p>
-          <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.auto[6] ? faCheckSquare : faSquare} width={width}/> &nbsp; Team Storing Element Detect Hub Level</p>
+          <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.auto[6] ? faCheckSquare : faSquare} width={width}/> &nbsp; Team Shipping Element Detect Hub Level</p>
           <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{user.auto[7]}</p>&nbsp;&nbsp; <p>Freight in Alliance Storage Unit</p></span>
           <span style={{display: 'flex', alignItems: 'center'}}><p className="box">{user.auto[8]}</p>&nbsp;&nbsp; <p>Freight in Alliance Shipping Hub</p></span>
         </div>
@@ -60,8 +61,6 @@ export default function Team({user, teamnumber, prematch}) {
   
         <div>
           <h4>Endgame</h4>
-          <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.endgame[0] ? faCheckSquare : faSquare} width={width}/> &nbsp; Alliance Shipping Hub Balanced</p>
-          <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.endgame[1] ? faCheckSquare : faSquare} width={width}/> &nbsp; Shared Shipping Hub Tipped towards Alliance</p>
           <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.endgame[2] ? faCheckSquare : faSquare} width={width}/> &nbsp; Alliance Shipping Hub Capped</p>
           <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.endgame[3] ? faCheckSquare : faSquare} width={width}/> &nbsp; Parked Completely in Warehouse</p>
           <p style={{display: 'flex', alignItems: 'center'}}><FontAwesomeIcon icon={user.endgame[4] ? faCheckSquare : faSquare} width={width}/> &nbsp; Parked Partially in Warehouse</p>
