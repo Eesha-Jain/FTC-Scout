@@ -33,7 +33,7 @@ export default function Search() {
 
   const teleop = () => {
     var dup = [...arr];
-    dup.sort(function(a,b) { return (b.tele[0] + b.tele[1] * 2 + b.tele[2] * 4 + b.tele[3] * 6 + b.tele[4] * 4) - (a.tele[0] + a.tele[1] * 2 + a.tele[2] * 4 + a.tele[3] * 6 + a.tele[4] * 4) });
+    dup.sort(function(a,b) { return (Math.max(b.tele[0], Math.max(b.tele[1] * 2 + b.tele[2] * 4 + b.tele[3] * 6), b.tele[4] * 4)) - (Math.max(a.tele[0], Math.max(a.tele[1] * 2 + a.tele[2] * 4 + a.tele[3] * 6), a.tele[4] * 4)) });
     setArr(dup);
   }
 
