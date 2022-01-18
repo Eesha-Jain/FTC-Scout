@@ -16,7 +16,7 @@ export default function PreMatch() {
 
   const bestscore = () => {
     var dup = [...arr];
-    dup.sort(function(a,b) { return b.best[0] - a.best[0] });
+    dup.sort(function(a,b) { return Number(b.best[0]) - Number(a.best[0]) });
     setArr(dup);
   }
 
@@ -28,19 +28,22 @@ export default function PreMatch() {
 
   const autonomous = () => {
     var dup = [...arr];
-    dup.sort(function(a,b) { return (Number(b.auto[0]) * 10 + Number(b.auto[1]) * 6 + Number(b.auto[2]) * 3 + Number(b.auto[3]) * 10 + Number(b.auto[4]) * 5 + Number(b.auto[5]) * 10 + Number(b.auto[6]) * 20 + b.auto[7] * 2 + b.auto[8] * 6) - (Number(a.auto[0]) * 10 + Number(a.auto[1]) * 6 + Number(a.auto[2]) * 3 + Number(a.auto[3]) * 10 + Number(a.auto[4]) * 5 + Number(a.auto[5]) * 10 + Number(a.auto[6]) * 20 + a.auto[7] * 2 + a.auto[8] * 6) });
+    dup.sort(function(a,b) { return (Number(b.auto[0]) * 10 + Number(b.auto[1]) * 6 + Number(b.auto[2]) * 3 + Number(b.auto[3]) * 10 + Number(b.auto[4]) * 5 + Number(b.auto[5]) * 10 + Number(b.auto[6]) * 20 + Number(b.auto[7]) * 2 + Number(b.auto[8]) * 6) - (Number(a.auto[0]) * 10 + Number(a.auto[1]) * 6 + Number(a.auto[2]) * 3 + Number(a.auto[3]) * 10 + Number(a.auto[4]) * 5 + Number(a.auto[5]) * 10 + Number(a.auto[6]) * 20 + Number(a.auto[7]) * 2 + Number(a.auto[8]) * 6) });
     setArr(dup);
   }
 
   const teleop = () => {
     var dup = [...arr];
-    dup.sort(function(a,b) { return (Math.max(b.tele[0], Math.max(b.tele[1] * 2 + b.tele[2] * 4 + b.tele[3] * 6), b.tele[4] * 4)) - (Math.max(a.tele[0], Math.max(a.tele[1] * 2 + a.tele[2] * 4 + a.tele[3] * 6), a.tele[4] * 4)) });
+    dup.sort(function(a,b) { return (Math.max(Number(b.tele[0]), Math.max(Number(b.tele[1]) * 2 + Number(b.tele[2]) * 4 + Number(b.tele[3]) * 6), Number(b.tele[4]) * 4)) - (Math.max(Number(a.tele[0]), Math.max(Number(a.tele[1]) * 2 + Number(a.tele[2]) * 4 + Number(a.tele[3]) * 6), Number(a.tele[4]) * 4)) });
     setArr(dup);
   }
 
   const endgame = () => {
     var dup = [...arr];
-    dup.sort(function(a,b) { return (Number(b.endgame[0]) * 10 + Number(b.endgame[1]) * 20 + Number(b.endgame[2]) * 15 + Number(b.endgame[3]) * 6 + Number(b.endgame[4]) * 3 + b.endgame[5] * 6) - (Number(a.endgame[0]) * 10 + Number(a.endgame[1]) * 20 + Number(a.endgame[2]) * 15 + Number(a.endgame[3]) * 6 + Number(a.endgame[4]) * 3 + a.endgame[5] * 6) });
+
+    console.log(dup);
+
+    dup.sort(function(a,b) { return (Number(b.endgame[0]) * 10 + Number(b.endgame[1]) * 20 + Number(b.endgame[2]) * 15 + Number(b.endgame[3]) * 6 + Number(b.endgame[4]) * 3 + Number(b.endgame[5]) * 6) - (Number(a.endgame[0]) * 10 + Number(a.endgame[1]) * 20 + Number(a.endgame[2]) * 15 + Number(a.endgame[3]) * 6 + Number(a.endgame[4]) * 3 + Number(a.endgame[5]) * 6) });
     setArr(dup);
   }
 

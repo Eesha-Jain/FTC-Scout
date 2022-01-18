@@ -124,6 +124,25 @@ export default function Account () {
     if (round == 1) {
       let arr = [auto[0], auto[1], auto[2], auto[3], auto[4], auto[5], auto[6], auto[7], auto[8]];
       arr[valIndex] = value;
+
+      if (valIndex == 1 && value == true && arr[2] == true) {
+        arr[2] = false;
+      } else if (valIndex == 2 && value == true && arr[1] == true) {
+        arr[1] = false;
+      }
+
+      if (valIndex == 3 && value == true && arr[4] == true) {
+        arr[4] = false;
+      } else if (valIndex == 4 && value == true && arr[3] == true) {
+        arr[3] = false;
+      }
+
+      if (valIndex == 5 && value == true && arr[6] == true) {
+        arr[6] = false;
+      } else if (valIndex == 6 && value == true && arr[5] == true) {
+        arr[5] = false;
+      }
+
       setAuto(arr);
     } else if (round == 2) {
       let arr = [tele[0], tele[1], tele[2], tele[3], tele[4]];
@@ -132,6 +151,13 @@ export default function Account () {
     } else if (round == 3) {
       let arr = [endgame[0], endgame[1], endgame[2], endgame[3], endgame[4], endgame[5]];
       arr[valIndex] = value;
+
+      if (valIndex == 3 && value == true && arr[4] == true) {
+        arr[4] = false;
+      } else if (valIndex == 4 && value == true && arr[3] == true) {
+        arr[3] = false;
+      }
+
       setEndgame(arr);
     } else {
       let arr = [best[0]];
