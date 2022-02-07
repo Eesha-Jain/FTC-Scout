@@ -28,7 +28,7 @@ export default function Banner() {
         <div className="Banner">
             <div className="row banner-bar" style={{textAlign: 'center'}} id="banner1">
                 <div className="col banner-left">
-                    <p>Sign up for <a target="_blank" href="https://www.eventbrite.com/e/washington-tech-invitational-tickets-234675168747">Washington Tech Invitationals</a></p>
+                    <p>Good luck competing teams :)</p>
                 </div>
 
                 <div className="col banner-right">
