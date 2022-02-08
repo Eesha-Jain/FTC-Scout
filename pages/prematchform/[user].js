@@ -80,6 +80,10 @@ export default function PreMatchForm() {
       }
 
       setEndgame(arr);
+    } else if (round == 4) {
+      let arr = [teaminfo[0], teaminfo[1], teaminfo[2], teaminfo[3], teaminfo[4]];
+      arr[valIndex] = value;
+      setTeamInfo(arr);
     } else {
       let arr = [best[0]];
       arr[valIndex] = value;
@@ -100,7 +104,7 @@ export default function PreMatchForm() {
               <table className="capability info"><tbody>
                 <tr>
                   <td><label>Team Number: </label></td>
-                  <td><input type="number" min="0" value={teaminfo[0] || ''} onChange={(e) => update(4, 0, e.target.value)} required/></td>
+                  <td><input type="number" min="0" value={teaminfo[0]} onChange={(e) => update(4, 0, e.target.value)} required/></td>
                 </tr>
 
                 <tr>
@@ -246,17 +250,17 @@ export default function PreMatchForm() {
                   <table className="capability"><tbody>
                       <tr>
                         <td><label>Robot Drive on Top of Pipes</label></td>
-                        <td><input type="checkbox" checked={best[1]} onChange={() => update(4, 1, !best[1])}/></td>
+                        <td><input type="checkbox" checked={best[1]} onChange={() => update(5, 1, !best[1])}/></td>
                       </tr>
 
                       <tr>
                         <td><label>Best Score: </label></td>
-                        <td><input type="number" min="0" max="600" value={best[0]} onChange={(e) => update(4, 0, e.target.value)} required/></td>
+                        <td><input type="number" min="0" max="600" value={best[0]} onChange={(e) => update(5, 0, e.target.value)} required/></td>
                       </tr>
 
                       <tr>
                         <td><label>Average Score: </label></td>
-                        <td><input type="number" min="0" max="600" value={best[2]} onChange={(e) => update(4, 2, e.target.value)} required/></td>
+                        <td><input type="number" min="0" max="600" value={best[2]} onChange={(e) => update(5, 2, e.target.value)} required/></td>
                       </tr>
                   </tbody></table>
                 </div>

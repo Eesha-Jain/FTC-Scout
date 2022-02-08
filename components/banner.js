@@ -28,7 +28,7 @@ export default function Banner() {
         <div className="Banner">
             <div className="row banner-bar" style={{textAlign: 'center'}} id="banner1">
                 <div className="col banner-left">
-                    <p>Good luck competing teams :)</p>
+                    <p>Good luck teams :)</p>
                 </div>
 
                 <div className="col banner-right">
