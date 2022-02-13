@@ -28,7 +28,9 @@ export default function DuringMatch() {
       <div className="DuringMatch">
         <br />
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 0, paddingTop: 0}}><Link href={`/duringmatchform/${user}`} as={ process.env.PUBLIC_URL + '/duringmatchform/' + user}><button type="submit" id="scoutteam" style={{fontWeight: 300, marginTop: 0}}>Scout New Match</button></Link></div>
-        <br />
+
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 0, paddingTop: 0}}><Link href="/documents/FTCDuringMatchScouting.pdf" target="_blank" download id="ftcduringmatchdownloadbutton"><a className="button" style={{fontWeight: 300, marginTop: 0}}>Download Paper Sheet</a></Link></div>
+
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 0, paddingTop: 0}}><Link href={`/viewduringmatches/${user}`} as={ process.env.PUBLIC_URL + '/viewduringmatches/' + user}><button type="submit" id="scoutteam" style={{fontWeight: 300, marginTop: 0}}>View Scouted Matches</button></Link></div>
       </div>
 
