@@ -1,7 +1,8 @@
 # FTC Scout
+
 ![FTCScout](FTCScout.png)
 
-Has your team faced trouble with maintaining efficient scouting during matches? Maybe there's too many papers to keep track of or your team hasn't found an organized system that works for your team. 
+Has your team faced trouble with maintaining efficient scouting during matches? Maybe there's too many papers to keep track of or your team hasn't found an organized system that works for your team.
 
 Check out FTC Scout [here](https://ftcscout.herokuapp.com/).
 
@@ -22,4 +23,4 @@ This tool was developed by [Eesha Jain](https://github.com/Eesha-Jain/) from FTC
 
 Here is a walkthrough of the platform:
 
-https://user-images.githubusercontent.com/68827992/147803499-1fc5b791-fc4f-4978-a0dd-f5d8b3f004a0.mp4
+<https://user-images.githubusercontent.com/68827992/147803499-1fc5b791-fc4f-4978-a0dd-f5d8b3f004a0.mp4>
