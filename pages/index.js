@@ -19,7 +19,7 @@ export default function Home () {
   return (
     <div>
       <div className="Home">
-        <Header name="Home" title="FTC Scouting" description="Welcome! Sign up or log in to get started." height={82.5} />
+        <Header name="Home" title="FTC Scout" description="Welcome! Sign up or log in to get started." height={82.5} />
       </div>
     </div>
   );
