@@ -1,3 +1,5 @@
+![BioMatrix](BioMatrix.png)
+
 # FTC Scout
 Has your team faced trouble with maintaining efficient scouting during matches? Maybe there's too many papers to keep track of or your team hasn't found an organized system that works for your team. 
 
